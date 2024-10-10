@@ -194,11 +194,6 @@ collections:
       layout: post
     output: true
     permalink: /:collection/:title/
-  media:
-    defaults:
-      layout: post
-    output: true
-    permalink: /media/:path/
   projects:
     output: true
     permalink: /:collection/:title/
