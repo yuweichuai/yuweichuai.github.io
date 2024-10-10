@@ -1,6 +1,6 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
 subtitle: <a href='https://wwwen.uni.lu/'>SnT, University of Luxembourg</a>. Luxembourg.
 
