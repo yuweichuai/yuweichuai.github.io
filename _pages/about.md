@@ -20,6 +20,6 @@ social: true # includes social icons at the bottom of the page
 
 Yuwei Chuai is a PhD student at the University of Luxembourg (starting from October 2022). His research interests are in `Social Networks`, `Misinformation`, and `Computational Social Science`. 
 
-Currently, he is working on a research project titled "[REgulatory Solutions to MitigatE online DISinfomation (REMEDIS)](https://projectremedis.wordpress.com/)," funded by FNR in Luxembourg. His work in understanding the spread of misinformation has been accepted/published in high-quality conferences (such as CSCW) and featured by popular media such as `New Scientist` and `Communications of the ACM`.
+Currently, he is working on a research project titled [REgulatory Solutions to MitigatE online DISinfomation (REMEDIS)](https://projectremedis.wordpress.com/), funded by FNR in Luxembourg. His work in understanding the spread of misinformation has been accepted/published in high-quality conferences, such as `CSCW`. Part of his findings was also featured by popular media such as `New Scientist` and `Communications of the ACM`.
 
 He is deeply committed to combating misinformation, one of the most pressing societal problems of the twenty-first century and a significant topic in the field of Computational Social Science.
