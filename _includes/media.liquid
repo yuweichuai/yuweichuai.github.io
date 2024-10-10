@@ -3,13 +3,13 @@
     {% assign media_size = site.media | size %}
     <div
       class="table-responsive"
-      {% if site.media.scrollable and media_size > 3 %}
+      {% if include.limit and site.media.scrollable and media_size > 3 %}
         style="max-height: 60vw"
       {% endif %}
     >
       <table class="table table-sm table-borderless">
         {% assign media = site.media | reverse %}
-        {% if site.media.limit %}
+        {% if include.limit and site.media.limit %}
           {% assign media_limit = site.media.limit %}
         {% else %}
           {% assign media_limit = media_size %}
