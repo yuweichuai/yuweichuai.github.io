@@ -48,8 +48,8 @@ layout: default
       {% include news.liquid limit=true %}
     {% endif %}
 
-    <!-- Latest media reports -->
-    {% if site.media.enabled %}
+    <!-- Media coverage -->
+    {% if page.media and site.media_reports.enabled %}
       <h2>
         <a href="{{ '/media/' | relative_url }}" style="color: inherit">Media coverage</a>
       </h2>
