@@ -4,4 +4,4 @@ title: Media coverage
 permalink: /media/
 ---
 
-{% include media.liquid %}
+{% include news.liquid %}
