@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2015-10-22 15:59:00-0400
+date: 2024-09-19
 inline: true
 related_posts: false
 ---
 
-A simple inline announcement. `New Scientist`
+[It’s easy to find misinformation on social media. It’s even easier on X](https://www.poynter.org/fact-checking/2024/how-elon-musk-twitter-takeover-accelerated-misinformation/). Poynter
