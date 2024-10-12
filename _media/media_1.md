@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2024-09-19
+date: 2020-05-22
 inline: true
 related_posts: false
 ---
 
-[It’s easy to find misinformation on social media. It’s even easier on X](https://www.poynter.org/fact-checking/2024/how-elon-musk-twitter-takeover-accelerated-misinformation/). Poynter
+[Fake news gets shared more when it is angry and anxiety-inducing](https://www.newscientist.com/article/2242452-fake-news-gets-shared-more-when-it-is-angry-and-anxiety-inducing/). New Scientist
