@@ -9,7 +9,6 @@ profile:
   image: prof_pic.jpeg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>Bâtiment Central-ABCD</p>
     <p>6, rue Coudenhove-Kalergi</p>
     <p>L-1359 LUXEMBOURG</p>
 
@@ -18,6 +17,6 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Yuwei Chuai is a thrid-year PhD student at the University of Luxembourg (starting from October 2022). His research interests are in `Social Networks`, `Misinformation`, and `Computational Social Science`.
+I am a thrid-year PhD student at the University of Luxembourg (started from October 2022). My research interests are in `Social Networks`, `Misinformation`, and `Computational Social Science`.
 
-He is a member of [IRISC](https://www.uni.lu/snt-en/research-groups/IRiSC/) research group at Interdisciplinary Centre for Security, Reliability and Trust (SnT). Currently, he is working on a research project titled `REMEDIS` -- [REgulatory Solutions to MitigatE online DISinfomation](https://projectremedis.wordpress.com/) -- funded by FNR in Luxembourg. His work in understanding and combating the spread of online misinformation has been accepted/published in high-quality journals and conferences, such as `CSCW`. Part of his findings was also featured by popular media such as `New Scientist`, `Poynter` and `Communications of the ACM`.
+I am a member of [IRISC](https://www.uni.lu/snt-en/research-groups/IRiSC/) research group at Interdisciplinary Centre for Security, Reliability and Trust (SnT). Currently, I am working on a research project titled `REMEDIS` -- [REgulatory Solutions to MitigatE online DISinfomation](https://projectremedis.wordpress.com/) -- funded by FNR in Luxembourg. My work in understanding and combating the spread of online misinformation has been accepted/published in high-quality journals and conferences, such as `CSCW`. Part of my findings was also featured by popular media such as `New Scientist`, `Poynter` and `Communications of the ACM`.
