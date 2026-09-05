@@ -90,6 +90,11 @@ After building, run the static content and local-link checks:
 node --test tests/academic-content.test.mjs tests/analytics.test.mjs
 ```
 
+The entrance animation runs once on page load. Anchor navigation does not
+change its animation state, preventing sections from fading out again after a
+navigation click. The network pauses while the page is scrolling and resumes
+after scrolling settles.
+
 To export a self-contained HTML preview and a GitHub-ready source ZIP, commit
 your changes, then run this command with an absolute output directory:
 

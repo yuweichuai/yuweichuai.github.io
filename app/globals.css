@@ -85,8 +85,7 @@ img { display: block; max-width: 100%; }
   top: 0;
   z-index: 20;
   border-bottom: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(12px);
+  background: #ffffff;
 }
 .header-inner {
   width: min(100% - 3rem, 68rem);
@@ -371,10 +370,6 @@ h3 { font-size: 1rem; font-weight: 600; line-height: 1.5; }
   #experience, #education, #projects, .academic-columns, #recognition, .site-footer {
     animation-delay: 220ms;
   }
-  .main-content > section:target,
-  .profile:focus-within,
-  .main-content > section:focus-within { animation: none; }
-
   a { transition: color 160ms ease; }
   .site-header nav a::after { transition: transform 200ms ease; }
   .publication { transition: background-color 180ms ease; }

@@ -17,6 +17,8 @@
       const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
       let paused = false;
       let visible = true;
+      let scrolling = false;
+      let scrollTimer = null;
       let frame = null;
       let previous = null;
       let elapsed = 0;
@@ -61,7 +63,7 @@
       }
 
       function canAnimate() {
-        return !paused && !preference.matches && visible && !document.hidden;
+        return !paused && !preference.matches && visible && !scrolling && !document.hidden;
       }
       function tick(now) {
         frame = null;
@@ -95,6 +97,11 @@
       toggle.addEventListener("click", () => { paused = !paused; sync(); });
       preference.addEventListener("change", sync);
       document.addEventListener("visibilitychange", sync);
+      window.addEventListener("scroll", () => {
+        if (!scrolling) { scrolling = true; sync(); }
+        window.clearTimeout(scrollTimer);
+        scrollTimer = window.setTimeout(() => { scrolling = false; sync(); }, 140);
+      }, { passive: true });
       if ("IntersectionObserver" in window) {
         const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); });
         observer.observe(root);
