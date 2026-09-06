@@ -165,7 +165,7 @@ export default function Home() {
           <section className="about-section" id="about" aria-labelledby="about-heading">
             <div className="about-overview">
               <div className="about-copy">
-                <p className="eyebrow">Online trust and safety · Computational social science</p>
+                <p className="eyebrow">Computational social science</p>
                 <h2 id="about-heading">About me</h2>
                 <p>
                   I study how information spreads online and how digital platforms can
