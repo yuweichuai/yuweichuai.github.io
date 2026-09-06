@@ -16,6 +16,21 @@ const profileLinks = [
   { label: "X / Twitter", href: "https://x.com/yuweichuai" },
 ];
 
+const newsUpdates = [
+  {
+    title: "Platform governance",
+    description: "Misinformation, community-based fact-checking, and content moderation.",
+  },
+  {
+    title: "Cross-platform information",
+    description: "Information diffusion and systemic risk across digital platforms.",
+  },
+  {
+    title: "Human–AI collaboration",
+    description: "AI and LLM evaluation, and tools that support collaborative fact-checking.",
+  },
+];
+
 const researchAreas = [
   {
     title: "Platform governance",
@@ -191,6 +206,20 @@ export default function Home() {
               <span>Current work</span>
               Studying the downstream effects of community notes on misinformation producers. <ExternalLink href="https://arxiv.org/abs/2608.27526v1" className="paper-link">arXiv</ExternalLink>
             </p>
+          </section>
+
+          <section className="content-section news-section" id="news" aria-labelledby="news-heading">
+            <div className="section-heading">
+              <h2 id="news-heading">News updates</h2>
+            </div>
+            <dl className="news-list">
+              {newsUpdates.map((area) => (
+                <div key={area.title}>
+                  <dt>{area.title}</dt>
+                  <dd>{area.description}</dd>
+                </div>
+              ))}
+            </dl>
           </section>
 
           <section className="content-section research-section" id="research" aria-labelledby="research-heading">
