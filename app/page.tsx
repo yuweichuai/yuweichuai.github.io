@@ -179,8 +179,8 @@ export default function Home() {
             <p>
               Trained in computer science and information systems, I combine causal
               inference with large-scale digital trace data, network analysis,
-              LLM-based measurement, and experiments. My first-author publications have appeared in leading interdisciplinary venues such as 
-              <em>Nature Communications</em>, <em>CHI</em>, <em>WWW</em>, <em>CSCW</em>, and <em>ICWSM</em>. 
+              LLM-based measurement, and experiments. My first-author publications have appeared in leading interdisciplinary venues 
+              such as <em>Nature Communications</em>, <em>CHI</em>, <em>WWW</em>, <em>CSCW</em>, and <em>ICWSM</em>. 
               These studies provide some of the first large-scale empirical and causal evidence on the effectiveness, limitations, 
               and behavioural consequences of community-based fact-checking systems. 
               Additionally, my work has attracted international media attention through coverage in 
@@ -189,7 +189,7 @@ export default function Home() {
             </p>
             <p className="current-note">
               <span>Currently</span>
-              Studying the downstream effects of community notes on misinformation producers.
+              Studying the downstream effects of community notes on misinformation producers. <ExternalLink href="https://arxiv.org/abs/2608.27526v1" className="paper-link">arXiv</ExternalLink>
             </p>
           </section>
 
