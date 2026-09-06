@@ -19,11 +19,11 @@ const profileLinks = [
 const newsUpdates = [
   {
     title: "EMNLP 2026",
-    description: "One paper accepted in the EMNLP 2026 main conference.",
+    description: "One paper accepted in the EMNLP 2026 main conference to be held in Budapest, Hungary from October 24th to October 29th, 2026.",
   },
   {
     title: "ICWSM 2027",
-    description: "One paper accepted at ICWSM 2027.",
+    description: "One paper accepted at ICWSM 2027 to be held in Edinburgh, Scotland.",
   }
 ];
 
