@@ -69,19 +69,19 @@ const education = [
   {
     period: "2022 — 2026",
     title: "PhD in Computer Science",
-    institution: "University of Luxembourg",
-    detail: "Supervisor: Gabriele Lenzini. Thesis: Computational analysis of misinformation engagement and interventions on social media.",
+    institution: "University of Luxembourg, Luxembourg",
+    detail: "Supervisor: Prof. Gabriele Lenzini. Thesis: Computational analysis of misinformation engagement and interventions on social media [Excellent Thesis Award Nomination].",
   },
   {
     period: "2019 — 2022",
     title: "MSc in Management Science and Engineering",
-    institution: "Beihang University",
+    institution: "Beihang University, China",
     detail: "Exchange at the University of Luxembourg, 2021–2022.",
   },
   {
     period: "2015 — 2019",
     title: "BEng in Information Management and Information System",
-    institution: "Hefei University of Technology",
+    institution: "Hefei University of Technology, China",
     detail: "Outstanding Graduate, 2019.",
   },
 ];
@@ -149,7 +149,7 @@ export default function Home() {
             <div>
               <h1>Yuwei Chuai</h1>
               <p className="profile-role">Postdoctoral Researcher</p>
-              <p className="profile-affiliation">SnT, University of Luxembourg</p>
+              <p className="profile-affiliation" href="https://www.uni.lu/snt-en/">SnT, University of Luxembourg</p>
             </div>
           </div>
 
@@ -169,14 +169,14 @@ export default function Home() {
               <ExternalLink key={link.label} href={link.href}>{link.label}</ExternalLink>
             ))}
           </div>
-          <p className="profile-caption">Computational social science<br />Online trust & safety</p>
+          <p className="profile-caption">Let's work together</p>
         </aside>
 
         <main className="main-content" id="main">
           <section className="about-section" id="about" aria-labelledby="about-heading">
             <div className="about-overview">
               <div className="about-copy">
-                <p className="eyebrow">Computational social science · Online trust and safety</p>
+                {/*<p className="eyebrow">Computational social science · Online trust and safety</p>*/}
                 <h2 id="about-heading">About me</h2>
                 <p>
                   I study how information spreads online and how digital platforms can
@@ -200,7 +200,7 @@ export default function Home() {
             </p>
             <p className="current-note">
               <span>Current work</span>
-              Studying the downstream effects of community notes on misinformation producers. <ExternalLink href="https://arxiv.org/abs/2608.27526v1" className="paper-link">arXiv</ExternalLink>
+              Studying the downstream effects of community notes on misinformation producers. Welcom to read our preprint on <ExternalLink href="https://arxiv.org/abs/2608.27526v1" className="paper-link">arXiv</ExternalLink>
             </p>
           </section>
 
