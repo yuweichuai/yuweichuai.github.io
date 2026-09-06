@@ -18,17 +18,13 @@ const profileLinks = [
 
 const newsUpdates = [
   {
-    title: "Platform governance",
-    description: "Misinformation, community-based fact-checking, and content moderation.",
+    title: "EMNLP 2026",
+    description: "One paper accepted in the EMNLP 2026 main conference.",
   },
   {
-    title: "Cross-platform information",
-    description: "Information diffusion and systemic risk across digital platforms.",
-  },
-  {
-    title: "Human–AI collaboration",
-    description: "AI and LLM evaluation, and tools that support collaborative fact-checking.",
-  },
+    title: "ICWSM 2027",
+    description: "One paper accepted at ICWSM 2027.",
+  }
 ];
 
 const researchAreas = [
@@ -164,9 +160,9 @@ export default function Home() {
             <p><MapPin size={15} aria-hidden="true" /><span>Luxembourg</span></p>
           </div>
 
-          <a className="cv-button" href="./Yuwei_Chuai_CV.pdf" target="_blank" rel="noopener noreferrer">
+          {/*<a className="cv-button" href="./Yuwei_Chuai_CV.pdf" target="_blank" rel="noopener noreferrer">
             <Download size={16} aria-hidden="true" /> Curriculum vitae
-          </a>
+          </a>*/}
 
           <div className="profile-links" aria-label="Academic and social profiles">
             {profileLinks.map((link) => (

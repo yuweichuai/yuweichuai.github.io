@@ -23,5 +23,11 @@
     "logo": "./logos/sigchi.png",
     "logoAlt": "ACM SIGCHI logo",
     "logos": { "2024": "./logos/cscw-2024.png", "2025": "./logos/cscw-2025.jpg" }
+  },
+  "icwsm": {
+    "label": "AAAI · ICWSM", "badge": "ICWSM",
+    "patterns": ["\\bICWSM[0-9]*\\b"],
+    "logo": "",
+    "logos": { "2025": "./logos/icwsm-2025.png"}
   }
 }
