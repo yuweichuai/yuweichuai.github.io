@@ -1,4 +1,4 @@
-import { ArrowUpRight, Download, Mail, MapPin } from "lucide-react";
+import { ArrowUpRight, Briefcase, Download, Mail, MapPin } from "lucide-react";
 import { Fragment, type ReactNode } from "react";
 import AnalyticsConsent from "./analytics-consent";
 import ResearchNetwork from "./research-network";
@@ -149,7 +149,7 @@ export default function Home() {
             <div>
               <h1>Yuwei Chuai</h1>
               <p className="profile-role">Postdoctoral Researcher</p>
-              <p className="profile-affiliation" href="https://www.uni.lu/snt-en/">SnT, University of Luxembourg</p>
+              <p className="profile-affiliation">SnT, University of Luxembourg</p>
             </div>
           </div>
 
@@ -163,13 +163,17 @@ export default function Home() {
           {/*<a className="cv-button" href="./Yuwei_Chuai_CV.pdf" target="_blank" rel="noopener noreferrer">
             <Download size={16} aria-hidden="true" /> Curriculum vitae
           </a>*/}
+          <div className="job-market-note" role="note" aria-label="On the academic job market">
+            <p className="job-market-note-title"><Briefcase size={14} aria-hidden="true" /><span>On the faculty job market</span></p>
+            <p>Applying for tenure-track positions in 2026–2027. Get in touch if you think my profile might be a fit!</p>
+          </div>
 
           <div className="profile-links" aria-label="Academic and social profiles">
             {profileLinks.map((link) => (
               <ExternalLink key={link.label} href={link.href}>{link.label}</ExternalLink>
             ))}
           </div>
-          <p className="profile-caption">Let's work together</p>
+          {/*<p className="profile-caption">Let's work together</p>*/}
         </aside>
 
         <main className="main-content" id="main">

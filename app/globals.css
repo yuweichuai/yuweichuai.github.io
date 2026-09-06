@@ -166,6 +166,23 @@ a, button { touch-action: manipulation; }
 }
 .profile-contact a, .profile-contact p { display: flex; align-items: center; gap: 0.55rem; }
 .profile-contact span { overflow-wrap: anywhere; }
+.job-market-note {
+  margin-top: 1.1rem;
+  padding: 0.7rem 0.85rem;
+  border-left: 2px solid var(--accent-gold);
+  border-radius: 0 0.35rem 0.35rem 0;
+  background: var(--accent-gold-soft);
+}
+.job-market-note-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--ink);
+  font-size: 0.8rem;
+  font-weight: 650;
+  margin-bottom: 0.3rem;
+}
+.job-market-note p:last-child { color: var(--muted); font-size: 0.8rem; line-height: 1.5; }
 .cv-button {
   display: inline-flex;
   align-items: center;
