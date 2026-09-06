@@ -2,7 +2,7 @@
   "nature": {
     "label": "Nature Communications", "badge": "NC",
     "patterns": ["nature communications"],
-    "logo": "./logos/nature-communications.svg"
+    "logo": "./logos/nature-communications.png"
   },
   "www": {
     "label": "The Web Conference", "badge": "WWW",
