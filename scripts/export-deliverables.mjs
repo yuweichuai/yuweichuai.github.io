@@ -14,7 +14,7 @@ assert.equal(git("status", "--porcelain").trim(), "", "Commit source changes bef
 mkdirSync(output, { recursive: true });
 
 const client = join(root, "dist/client");
-const mimeTypes = { ".jpg": "image/jpeg", ".svg": "image/svg+xml", ".pdf": "application/pdf" };
+const mimeTypes = { ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png", ".webp": "image/webp", ".svg": "image/svg+xml", ".pdf": "application/pdf" };
 const attr = (tag, name) => tag.match(new RegExp(`\\b${name}="([^"]*)"`))?.[1];
 function localAsset(href) {
   const clean = href.replace(/^\.\//, "").replace(/^\/+/, "");
@@ -30,7 +30,9 @@ function dataUrl(href) {
 }
 
 let html = readFileSync(join(client, "index.html"), "utf8");
-html = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "");
+assert(html.includes('name="site-build"'), "Build the lightweight production HTML first.");
+// Use the same navigation and network runtime as the deployed HTML.
+html = html.replace(/<script\b[^>]*data-site-runtime="analytics"[^>]*>[\s\S]*?<\/script>/gi, "");
 // Offline design previews must not show inert consent controls or collect data.
 html = html.replace(/<aside\b[^>]*data-preview-omit="analytics"[^>]*>[\s\S]*?<\/aside>/gi, "");
 html = html.replace(/<link\b[^>]*>/gi, (tag) => {
@@ -56,13 +58,8 @@ html = html.replace(/<a\b[^>]*>/gi, (tag) => {
   return tag.replace(`href="${href}"`, `href="${dataUrl(href)}" download="${filename}"`)
     .replace(/\starget="_blank"/, "");
 });
-assert(!/<script\b/i.test(html), "Preview must not require framework scripts.");
+assert(!/__VINEXT|__NEXT|type="module"/.test(html), "Preview must not require framework scripts.");
 assert(!/(?:href|src)="(?:\.\/|\/)/.test(html), "Preview has unresolved local links.");
-if (html.includes("data-research-network")) {
-  const runtime = readFileSync(join(client, "research-network.js"), "utf8");
-  assert(!/<\/script/i.test(runtime), "Unexpected script end tag in network runtime.");
-  html = html.replace("</body>", `<script data-network-runtime="true">${runtime}</script></body>`);
-}
 const previewPath = join(output, "Yuwei_Chuai_Website_Preview.html");
 writeFileSync(previewPath, html);
 

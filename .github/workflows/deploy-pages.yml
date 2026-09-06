@@ -40,7 +40,7 @@ jobs:
         run: npm run build
 
       - name: Check generated website
-        run: test -f dist/client/index.html
+        run: npm run test:site
 
       - name: Upload website
         uses: actions/upload-pages-artifact@v3

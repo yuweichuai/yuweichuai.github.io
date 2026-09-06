@@ -2,6 +2,9 @@ import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import test from "node:test";
+import { getPublications } from "../lib/publications.mjs";
+
+const publications = getPublications(readFileSync("publications.bib", "utf8"), JSON.parse(readFileSync("data/venues.json", "utf8")));
 
 const client = resolve("dist/client");
 const html = readFileSync(resolve(client, "index.html"), "utf8")
@@ -17,17 +20,18 @@ test("academic profile and key CV corrections are present", () => {
   assert.equal((html.match(/<h1\b/g) ?? []).length, 1);
 });
 
-test("six selected publications have a title, DOI, and highlighted author", () => {
+test("the bibliography is fully rendered with author markers and consistent logos", () => {
   const papers = [...html.matchAll(/<article class="publication">([\s\S]*?)<\/article>/g)];
-  assert.equal(papers.length, 6);
-  for (const [, paper] of papers) {
-    assert.match(paper, /<h3><a href="https:\/\/doi.org\//);
-    assert.match(paper, /<strong>Yuwei Chuai<\/strong>/);
-    assert.match(paper, /class="paper-link"/);
+  assert.equal(papers.length, publications.length);
+  for (const [index, [, paper]] of papers.entries()) {
+    const source = publications[index];
+    if (source.href) assert.match(paper, /class="paper-link"/);
+    if (source.authors.some(author => author.owner)) assert.match(paper, /<strong>Yuwei Chuai<\/strong>/);
+    assert.equal((paper.match(/class="corresponding-mark"/g) ?? []).length, source.authors.filter(a => a.corresponding).length);
     assert.match(paper, /<p class="publication-meta"><span class="publication-venue">/);
-    assert.match(paper, /class="publication-venue">(?:<span class="venue-badge|<a class="publication-thumbnail")/);
+    assert.match(paper, /class="venue-logo"/);
+    if (source.logo) assert.match(paper, /width="72" height="28"/);
   }
-  assert.match(html, /width="19" height="19"/);
 });
 
 test("all fragment links resolve and IDs are unique", () => {

@@ -16,12 +16,14 @@
       const toggle = root.querySelector("[data-network-toggle]");
       const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
       let paused = false;
-      let visible = true;
+      const bounds = root.getBoundingClientRect();
+      let visible = bounds.bottom > 0 && bounds.top < window.innerHeight;
       let scrolling = false;
       let scrollTimer = null;
       let frame = null;
       let previous = null;
       let elapsed = 0;
+      const frameInterval = window.matchMedia("(pointer: coarse)").matches ? 1000 / 20 : 1000 / 30;
 
       function paint(time, moving) {
         const turn = moving ? time * 0.055 : 0;
@@ -70,7 +72,7 @@
         if (!canAnimate()) { previous = null; return; }
         if (previous === null) previous = now;
         // Cap DOM updates at 30 fps and avoid jumps when returning to the tab.
-        if (now - previous >= 1000 / 30) {
+        if (now - previous >= frameInterval) {
           elapsed += Math.min((now - previous) / 1000, 0.1);
           previous = now;
           paint(elapsed, true);
@@ -101,6 +103,12 @@
         if (!scrolling) { scrolling = true; sync(); }
         window.clearTimeout(scrollTimer);
         scrollTimer = window.setTimeout(() => { scrolling = false; sync(); }, 140);
+      }, { passive: true });
+      // Pause before the first scroll event on touch screens.
+      window.addEventListener("touchmove", () => {
+        if (!scrolling) { scrolling = true; sync(); }
+        window.clearTimeout(scrollTimer);
+        scrollTimer = window.setTimeout(() => { scrolling = false; sync(); }, 160);
       }, { passive: true });
       if ("IntersectionObserver" in window) {
         const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); });

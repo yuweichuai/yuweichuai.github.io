@@ -16,7 +16,10 @@ npm run dev
 npm run build
 ```
 
-The static website is generated in `dist/client`.
+The static website is generated in `dist/client`. The build removes client-side
+framework routing and hydration from the final HTML. Only the small network
+animation and, when configured, the opt-in analytics runtime remain. Navigation
+is plain HTML anchors: no scripted scrolling or section entrance effects.
 
 ## GitHub Pages
 
@@ -75,25 +78,32 @@ before activating production collection.
 
 ## Updating content
 
-Main content lives in `app/page.tsx`; design tokens and responsive styling live
-in `app/globals.css`. The current CV is `public/Yuwei_Chuai_CV.pdf`, the portrait
-is `public/yuwei-chuai.jpg`, and the small paper thumbnail is
-`public/request-a-note.jpg`. Publication badges are venue abbreviations, not
-official journal logos. The website is a selection; the downloadable CV contains
-the full publication list.
+**Selected publications:** edit `publications.bib` at the repository root. The
+build imports entries in file order, highlights Yuwei Chuai automatically, and
+adds † to explicitly listed corresponding authors. See **[PUBLICATIONS.md](PUBLICATIONS.md)**
+for a Chinese editing guide and examples. Official venue logos are stored in
+`public/logos`; mapping and optional annual variants are in `data/venues.json`.
+
+Other content lives in `app/page.tsx`; design tokens and responsive styling live
+in `app/globals.css`. The CV is `public/Yuwei_Chuai_CV.pdf` and the portrait is
+`public/yuwei-chuai.jpg`. The website is a selection; the CV contains the full list.
 
 ## Content checks and downloadable preview
 
 After building, run the static content and local-link checks:
 
 ```bash
-node --test tests/academic-content.test.mjs tests/analytics.test.mjs
+npm run test:site
 ```
 
-The entrance animation runs once on page load. Anchor navigation does not
-change its animation state, preventing sections from fading out again after a
-navigation click. The network pauses while the page is scrolling and resumes
-after scrolling settles.
+There are no section entrance effects, animated link movements or smooth
+scrolling. Native anchors work even with JavaScript disabled. The network still
+animates, pausing during scroll, offscreen and in hidden tabs. It uses fewer
+updates on touch devices and respects reduced-motion and the pause button.
+
+`test:site` runs the academic website's production checks. The unused starter
+catalog / development-metadata smoke tests remain separate from this static
+website's deployment gate.
 
 To export a self-contained HTML preview and a GitHub-ready source ZIP, commit
 your changes, then run this command with an absolute output directory:
@@ -102,7 +112,7 @@ your changes, then run this command with an absolute output directory:
 node scripts/export-deliverables.mjs /absolute/path/to/output
 ```
 
-Open the generated HTML in a browser. Its styles, portrait, thumbnail, and CV are
+Open the generated HTML in a browser. Its styles, portrait, venue logos, and CV are
 embedded; its network animation also runs offline. External scholarly links
 still require an internet connection. The graph is a conceptual illustration,
 not research data. Its pause button stops the animation; reduced-motion settings
@@ -110,3 +120,25 @@ show a static network. Animation work also pauses offscreen and in hidden tabs.
 The ZIP exports the committed source and substitutes a portable hosting manifest
 without the private Sites project ID. Unzip it, upload all files (including
 `.github` and `.openai`) to your GitHub repository, and configure Pages as above.
+When updating an existing repository, preserve your configured GA4 ID in
+`site.config.json` (or keep the existing Actions variable). The distributed
+example intentionally does not contain a measurement ID.
+
+## Preview / production parity
+
+The downloadable preview is derived from the **final deployment HTML**, with
+the same native anchors and identical network script. It only embeds assets
+and removes analytics. GitHub Actions runs the same build and regression checks.
+Do not upload only the preview HTML into an old source tree.
+
+If a live page still looks old, confirm the latest Actions deployment succeeded.
+Open `build-info.json` under the website root to check its content ID and build
+time. The new build identifies itself as `static-html-native-anchors`. The HTML
+also includes that content ID in its `site-build` meta tag. A cached old version
+or a failed workflow is not evidence the new files have deployed.
+
+For internal browser QA after a build, the Vite development server exposes
+`/__production__/index.html` (exact deployment bytes) and `/__mobile-check`
+(a 390px-wide same-origin iframe). These are development-only endpoints and
+are not published with the website. The iframe checks responsive layout; it is
+not a substitute for testing Safari or Android on a physical device.

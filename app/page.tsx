@@ -1,8 +1,11 @@
 import { ArrowUpRight, Download, Mail, MapPin } from "lucide-react";
-import type { ReactNode } from "react";
+import { Fragment, type ReactNode } from "react";
 import AnalyticsConsent from "./analytics-consent";
 import ResearchNetwork from "./research-network";
 import siteConfig from "../site.config.json";
+import bibliography from "../publications.bib?raw";
+import venues from "../data/venues.json";
+import { getPublications } from "../lib/publications.mjs";
 
 const scholarUrl = "https://scholar.google.com/citations?user=C_1EKy0AAAAJ";
 
@@ -28,63 +31,7 @@ const researchAreas = [
   },
 ];
 
-const publications = [
-  {
-    year: "2026",
-    venue: "Nature Communications",
-    badge: "NC",
-    tone: "nature",
-    title: "Community-based fact-checking reduces the spread of misleading posts on X (formerly Twitter)",
-    authors: "Yuwei Chuai, Moritz Pilarski, Thomas Renault, David Restrepo-Amariles, Aurore Troussel-Clément, Gabriele Lenzini & Nicolas Pröllochs",
-    href: "https://doi.org/10.1038/s41467-026-72597-0",
-  },
-  {
-    year: "2026",
-    venue: "The Web Conference",
-    badge: "WWW",
-    tone: "web",
-    title: "Consensus Stability of Community Notes on X",
-    authors: "Yuwei Chuai, Gabriele Lenzini & Nicolas Pröllochs",
-    href: "https://doi.org/10.1145/3774904.3792987",
-  },
-  {
-    year: "2026",
-    venue: "ACM CHI",
-    badge: "CHI",
-    tone: "chi",
-    title: "Request a Note: How the Request Function Shapes X’s Community Notes System",
-    authors: "Yuwei Chuai, Shuning Zhang, Ziming Wang, Xin Yi, Mohsen Mosleh & Gabriele Lenzini",
-    href: "https://doi.org/10.1145/3772318.3790524",
-    image: "./request-a-note.jpg",
-  },
-  {
-    year: "2025",
-    venue: "PACM HCI · CSCW",
-    badge: "CSCW",
-    tone: "cscw",
-    title: "From News Source Sharers to Post Viewers: How Topic Diversity and Conspiracy Theories Shape Engagement With Misinformation During a Health Crisis",
-    authors: "Yuwei Chuai, Jichang Zhao & Gabriele Lenzini",
-    href: "https://doi.org/10.1145/3757479",
-  },
-  {
-    year: "2025",
-    venue: "ACM CHI",
-    badge: "CHI",
-    tone: "chi",
-    title: "Community Fact-Checks Trigger Moral Outrage in Replies to Misleading Posts on Social Media",
-    authors: "Yuwei Chuai, Anastasia Sergeeva, Gabriele Lenzini & Nicolas Pröllochs",
-    href: "https://doi.org/10.1145/3706598.3713909",
-  },
-  {
-    year: "2024",
-    venue: "PACM HCI · CSCW",
-    badge: "CSCW",
-    tone: "cscw",
-    title: "Did the Roll-Out of Community Notes Reduce Engagement With Misinformation on X/Twitter?",
-    authors: "Yuwei Chuai, Haoye Tian, Nicolas Pröllochs & Gabriele Lenzini",
-    href: "https://doi.org/10.1145/3686967",
-  },
-];
+const publications = getPublications(bibliography, venues);
 
 const appointments = [
   {
@@ -145,11 +92,18 @@ function ExternalLink({
   );
 }
 
-function Authors({ children }: { children: string }) {
-  const [before, after] = children.split("Yuwei Chuai");
+function Authors({ authors }: { authors: { name: string; owner: boolean; corresponding: boolean }[] }) {
   return (
     <p className="publication-authors">
-      {before}<strong>Yuwei Chuai</strong>{after}
+      {authors.map((author, index) => (
+        <Fragment key={`${index}-${author.name}`}>
+          {index > 0 && (index === authors.length - 1 ? " & " : ", ")}
+          <span className="publication-author">
+            {author.owner ? <strong>{author.name}</strong> : author.name}
+            {author.corresponding && <sup className="corresponding-mark" title="Corresponding author" aria-label="Corresponding author">†</sup>}
+          </span>
+        </Fragment>
+      ))}
     </p>
   );
 }
@@ -159,7 +113,7 @@ export default function Home() {
     <>
       <a className="skip-link" href="#main">Skip to content</a>
 
-      <header className="site-header" id="top">
+      <header className="site-header">
         <div className="header-inner">
           <a className="wordmark" href="#top">Yuwei Chuai<span aria-hidden="true">.</span></a>
           <nav aria-label="Main navigation">
@@ -256,32 +210,31 @@ export default function Home() {
             </div>
             <ol className="publication-list">
               {publications.map((paper) => (
-                <li key={paper.href}>
+                <li key={paper.key}>
                   <article className="publication">
                     <div className="publication-content">
                       <p className="publication-meta">
                         <span className="publication-venue">
-                          {paper.image ? (
-                            <a className="publication-thumbnail" href={paper.image} target="_blank" rel="noopener noreferrer" aria-label="Open the Request a Note infographic">
-                              <img src={paper.image} alt="Request a Note infographic" width={19} height={19} loading="lazy" />
-                            </a>
-                          ) : (
-                            <span className={`venue-badge venue-${paper.tone}`} aria-hidden="true">{paper.badge}</span>
-                          )}
+                          <span className="venue-logo">
+                            {paper.logo ? <img src={paper.logo} alt={paper.logoAlt} width={72} height={28} loading="lazy" decoding="async" /> : <span>{paper.badge}</span>}
+                          </span>
                           <span>{paper.venue}</span>
                         </span>
                         <span className="publication-year">{paper.year}</span>
                       </p>
-                      <h3><a href={paper.href} target="_blank" rel="noopener noreferrer">{paper.title}</a></h3>
-                      <Authors>{paper.authors}</Authors>
+                      <h3>{paper.href ? <a href={paper.href} target="_blank" rel="noopener noreferrer">{paper.title}</a> : paper.title}</h3>
+                      <Authors authors={paper.authors} />
                     </div>
-                    <ExternalLink href={paper.href} className="paper-link">
+                    {paper.href && <ExternalLink href={paper.href} className="paper-link">
                       <span className="sr-only">{paper.title}: </span>Paper
-                    </ExternalLink>
+                    </ExternalLink>}
                   </article>
                 </li>
               ))}
             </ol>
+            {publications.some(paper => paper.authors.some(author => author.corresponding)) && (
+              <p className="publication-legend">† Corresponding author</p>
+            )}
             <p className="publication-footnote">
               A full list of publications and working papers is available in my{" "}
               <a href="./Yuwei_Chuai_CV.pdf" target="_blank" rel="noopener noreferrer">CV</a> and on{" "}

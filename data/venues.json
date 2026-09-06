@@ -1,0 +1,27 @@
+{
+  "nature": {
+    "label": "Nature Communications", "badge": "NC",
+    "patterns": ["nature communications"],
+    "logo": "./logos/nature-communications.svg"
+  },
+  "www": {
+    "label": "The Web Conference", "badge": "WWW",
+    "patterns": ["web conference", "world wide web", "\\bWWW\\b"],
+    "logo": "",
+    "logos": { "2026": "./logos/www.jpg" }
+  },
+  "chi": {
+    "label": "ACM CHI", "badge": "CHI",
+    "patterns": ["\\bCHI\\b", "human factors in computing systems"],
+    "logo": "./logos/sigchi.png",
+    "logoAlt": "ACM SIGCHI logo",
+    "logos": { "2025": "./logos/chi-2025.svg", "2026": "./logos/chi-2026.png" }
+  },
+  "cscw": {
+    "label": "PACM HCI · CSCW", "badge": "CSCW",
+    "patterns": ["\\bCSCW[0-9]*\\b", "computer.supported cooperative"],
+    "logo": "./logos/sigchi.png",
+    "logoAlt": "ACM SIGCHI logo",
+    "logos": { "2024": "./logos/cscw-2024.png", "2025": "./logos/cscw-2025.jpg" }
+  }
+}
