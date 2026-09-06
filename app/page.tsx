@@ -183,12 +183,12 @@ export default function Home() {
               such as <em>Nature Communications</em>, <em>CHI</em>, <em>WWW</em>, <em>CSCW</em>, and <em>ICWSM</em>. 
               These studies provide some of the first large-scale empirical and causal evidence on the effectiveness, limitations, 
               and behavioural consequences of community-based fact-checking systems. 
-              Additionally, my work has attracted international media attention through coverage in 
-              <em>MIT Technology Review</em>, <em>The Washington Post</em>, and <em>New Scientist</em>, 
+              Additionally, my work has attracted international media attention through coverage 
+              in <em>MIT Technology Review</em>, <em>The Washington Post</em>, and <em>New Scientist</em>, 
               and informed discussions surrounding platform governance and content moderation.
             </p>
             <p className="current-note">
-              <span>Currently</span>
+              <span>Current work</span>
               Studying the downstream effects of community notes on misinformation producers. <ExternalLink href="https://arxiv.org/abs/2608.27526v1" className="paper-link">arXiv</ExternalLink>
             </p>
           </section>
@@ -240,8 +240,7 @@ export default function Home() {
               <p className="publication-legend">† Corresponding author</p>
             )}
             <p className="publication-footnote">
-              A full list of publications and working papers is available in my{" "}
-              <a href="./Yuwei_Chuai_CV.pdf" target="_blank" rel="noopener noreferrer">CV</a> and on{" "}
+              A full list of publications and working papers is available on{" "}
               <a href={scholarUrl} target="_blank" rel="noopener noreferrer">Google Scholar</a>.
             </p>
           </section>
