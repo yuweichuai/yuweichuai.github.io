@@ -9,32 +9,11 @@ import { getPublications } from "../lib/publications.mjs";
 
 const scholarUrl = "https://scholar.google.com/citations?user=C_1EKy0AAAAJ";
 
-// const profileLinks = [
-//   { label: "Google Scholar", href: scholarUrl },
-//   { label: "ORCID", href: "https://orcid.org/0000-0001-6181-7311" },
-//   { label: "LinkedIn", href: "https://www.linkedin.com/in/yuwei-chuai-804916221/" },
-//   { label: "X / Twitter", href: "https://x.com/yuweichuai" },
-// ];
-
-// Simple Icons 11.15.0 (CC0); path provenance: public/logos/SOURCES.md.
-// Inline SVG keeps these small marks local and requires no client runtime.
 const profileLinks = [
-  {
-    label: "Google Scholar", href: scholarUrl,
-    icon: "M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z",
-  },
-  {
-    label: "ORCID", href: "https://orcid.org/0000-0001-6181-7311",
-    icon: "M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z",
-  },
-  {
-    label: "LinkedIn", href: "https://www.linkedin.com/in/yuwei-chuai-804916221/",
-    icon: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z",
-  },
-  {
-    label: "X / Twitter", href: "https://x.com/yuweichuai",
-    icon: "M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z",
-  },
+  { label: "Google Scholar", href: scholarUrl },
+  { label: "ORCID", href: "https://orcid.org/0000-0001-6181-7311" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/yuwei-chuai-804916221/" },
+  { label: "X / Twitter", href: "https://x.com/yuweichuai" },
 ];
 
 const researchAreas = [
@@ -186,7 +165,7 @@ export default function Home() {
           <section className="about-section" id="about" aria-labelledby="about-heading">
             <div className="about-overview">
               <div className="about-copy">
-                <p className="eyebrow">Computational social science</p>
+                <p className="eyebrow">Online trust and safety · Computational social science</p>
                 <h2 id="about-heading">About me</h2>
                 <p>
                   I study how information spreads online and how digital platforms can
