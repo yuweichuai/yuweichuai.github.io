@@ -11,3 +11,16 @@ Copyright and trademarks remain with their respective owners.
 - `cscw-2024.png`: [CSCW 2024](https://cscw.acm.org/2024/), [original logo](https://cscw.acm.org/2024/wp-content/uploads/2023/12/LOGO-CSCW-e1703866772172.png).
 - `cscw-2025.jpg`: [CSCW 2025 logo information](https://cscw.acm.org/2025/index.php/student-volunteers-wanted/), [publisher's compact banner](https://cscw.acm.org/2025/wp-content/uploads/2025/01/CSCW_Website_Banner-300x118.jpg).
 - `sigchi.png`: [CSCW 2025](https://cscw.acm.org/2025/), [ACM SIGCHI mark](https://cscw.acm.org/2025/wp-content/uploads/2025/09/SIGCHI_Logo.svg-300x77.png). Year-neutral fallback for CHI / CSCW where no year-specific logo is configured; not a year-specific conference logo.
+
+## Academic and social profile icons
+
+The four monochrome SVG paths in `app/page.tsx` are unchanged paths from
+[Simple Icons 11.15.0](https://github.com/simple-icons/simple-icons/tree/11.15.0),
+distributed under [CC0](https://github.com/simple-icons/simple-icons/blob/11.15.0/LICENSE.md).
+Brand trademarks remain with their owners. The icons identify links to the
+corresponding profiles and are rendered locally, without a CDN or new dependency.
+
+- [Google Scholar SVG](https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/googlescholar.svg)
+- [ORCID SVG](https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/orcid.svg)
+- [LinkedIn SVG](https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/linkedin.svg)
+- [X SVG](https://raw.githubusercontent.com/simple-icons/simple-icons/11.15.0/icons/x.svg)
