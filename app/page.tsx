@@ -18,15 +18,20 @@ const profileLinks = [
 
 const newsUpdates = [
   {
-    date: "2026-10",
+    date: "2026-08",
     title: "EMNLP 2026",
     description:
       "One paper accepted in the EMNLP 2026 main conference, to be held in Budapest, Hungary from October 24–29, 2026.",
   },
   {
-    date: "2026-09",
+    date: "2026-07",
     title: "ICWSM 2027",
     description: "One paper accepted at ICWSM 2027, to be held in Edinburgh, Scotland.",
+  },
+  {
+    date: "2026-06",
+    title: "WWW 2026",
+    description: "Oral presentation at WWW 2026.",
   },
 ].sort((a, b) => b.date.localeCompare(a.date));
 
