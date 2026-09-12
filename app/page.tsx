@@ -228,28 +228,25 @@ export default function Home() {
             </dl>
           </section>
 
-                    <section className="content-section" id="news" aria-labelledby="news-heading">
-            <div className="section-heading">
-              <h2 id="news-heading">News</h2>
+          <div className="news-scroll">
+              <ul className="news-list">
+                {newsUpdates.map((item, index) => (
+                  <li key={item.title} className="news-item">
+                    <div className="news-marker" aria-hidden="true" />
+                    <time className="news-date" dateTime={item.date}>
+                      {newsDateLabel(item.date)}
+                    </time>
+                    <div className="news-body">
+                      <p className="news-title">
+                        {item.title}
+                        {index === 0 && <span className="news-badge">Latest</span>}
+                      </p>
+                      <p className="news-description">{item.description}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="news-list">
-              {newsUpdates.map((item, index) => (
-                <li key={item.title} className="news-item">
-                  <div className="news-marker" aria-hidden="true" />
-                  <time className="news-date" dateTime={item.date}>
-                    {newsDateLabel(item.date)}
-                  </time>
-                  <div className="news-body">
-                    <p className="news-title">
-                      {item.title}
-                      {index === 0 && <span className="news-badge">Latest</span>}
-                    </p>
-                    <p className="news-description">{item.description}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </section>
 
           <section className="content-section" id="publications" aria-labelledby="publications-heading">
             <div className="section-heading">
