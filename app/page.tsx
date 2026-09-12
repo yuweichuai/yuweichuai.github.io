@@ -161,6 +161,8 @@ export default function Home() {
               <h1>Yuwei Chuai</h1>
               <p className="profile-role">Postdoctoral Researcher</p>
               <p className="profile-affiliation">SnT, University of Luxembourg</p>
+              <p className="profile-role">Visiting Research Fellow</p>
+              <p className="profile-affiliation">Oxford Internet Institute, University of Oxford</p>
             </div>
           </div>
 
