@@ -18,14 +18,20 @@ const profileLinks = [
 
 const newsUpdates = [
   {
+    date: "2026-10",
     title: "EMNLP 2026",
-    description: "One paper accepted in the EMNLP 2026 main conference to be held in Budapest, Hungary from October 24th to October 29th, 2026.",
+    description:
+      "One paper accepted in the EMNLP 2026 main conference, to be held in Budapest, Hungary from October 24–29, 2026.",
   },
   {
+    date: "2026-09",
     title: "ICWSM 2027",
-    description: "One paper accepted at ICWSM 2027 to be held in Edinburgh, Scotland.",
-  }
-];
+    description: "One paper accepted at ICWSM 2027, to be held in Edinburgh, Scotland.",
+  },
+].sort((a, b) => b.date.localeCompare(a.date));
+
+const newsDateLabel = (iso: string) =>
+  new Date(`${iso}-01T00:00:00`).toLocaleDateString("en-US", { month: "short", year: "numeric" });
 
 const researchAreas = [
   {
@@ -222,18 +228,27 @@ export default function Home() {
             </dl>
           </section>
 
-          <section className="content-section" id="news" aria-labelledby="news-heading">
+                    <section className="content-section" id="news" aria-labelledby="news-heading">
             <div className="section-heading">
               <h2 id="news-heading">News</h2>
             </div>
-            <dl className="research-list">
-              {newsUpdates.map((area) => (
-                <div key={area.title}>
-                  <dt>{area.title}</dt>
-                  <dd>{area.description}</dd>
-                </div>
+            <ul className="news-list">
+              {newsUpdates.map((item, index) => (
+                <li key={item.title} className="news-item">
+                  <div className="news-marker" aria-hidden="true" />
+                  <time className="news-date" dateTime={item.date}>
+                    {newsDateLabel(item.date)}
+                  </time>
+                  <div className="news-body">
+                    <p className="news-title">
+                      {item.title}
+                      {index === 0 && <span className="news-badge">Latest</span>}
+                    </p>
+                    <p className="news-description">{item.description}</p>
+                  </div>
+                </li>
               ))}
-            </dl>
+            </ul>
           </section>
 
           <section className="content-section" id="publications" aria-labelledby="publications-heading">
