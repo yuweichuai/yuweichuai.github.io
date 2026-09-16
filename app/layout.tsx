@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Yuwei Chuai — Computational Social Scientist",
+  title: "Yuwei Chuai — Personal website",
   description:
     "Yuwei Chuai — Postdoctoral Researcher at the University of Luxembourg. Research on misinformation, platform governance, and human–AI collaboration.",
   authors: [{ name: "Yuwei Chuai" }],
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     "online trust and safety",
   ],
   icons: {
-    icon: "./favicon.svg",
-    shortcut: "./favicon.svg",
+    icon: "./yuwei-chuai.jpg",
+    shortcut: "./yuwei-chuai.jpg",
   },
 };
 

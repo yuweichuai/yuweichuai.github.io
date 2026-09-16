@@ -217,7 +217,7 @@ export default function Home() {
             </p>
             <p className="current-note">
               <span>Current work</span>
-              Studying the downstream effects of community notes on misinformation producers. Welcom to read our preprint on <ExternalLink href="https://arxiv.org/abs/2608.27526v1" className="paper-link">arXiv</ExternalLink>
+              Studying the downstream effects of community notes on misinformation producers. Read our preprint on <ExternalLink href="https://arxiv.org/abs/2608.27526v1" className="paper-link">arXiv</ExternalLink>
             </p>
           </section>
 
