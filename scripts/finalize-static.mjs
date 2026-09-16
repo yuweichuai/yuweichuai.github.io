@@ -6,20 +6,6 @@ import ts from "typescript";
 
 const root = resolve(import.meta.dirname, "..");
 const client = resolve(root, "dist/client");
-const { siteUrl } = JSON.parse(
-  readFileSync(resolve(root, "site.config.json"), "utf8")
-);
-const canonical = new URL(siteUrl);
-
-assert(
-  canonical.protocol === "https:" &&
-    !canonical.search &&
-    !canonical.hash &&
-    !canonical.username &&
-    !canonical.password,
-  "siteUrl must be a public HTTPS URL without credentials, query or fragment"
-);
-assert(canonical.pathname.endsWith("/"), "siteUrl must end with a slash");
 const path = resolve(client, "index.html");
 let html = readFileSync(path, "utf8");
 
