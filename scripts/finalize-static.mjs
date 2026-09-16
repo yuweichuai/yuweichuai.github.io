@@ -52,22 +52,4 @@ html = html.replace("</head>", `<meta name="site-build" content="${contentId}"><
 writeFileSync(path, html);
 writeFileSync(resolve(client, ".nojekyll"), "");
 writeFileSync(resolve(client, "build-info.json"), JSON.stringify({ contentId, mode: "static-html-native-anchors", builtAt: new Date().toISOString() }, null, 2) + "\n");
-const xmlUrl = canonical.href
-  .replace(/&/g, "&amp;")
-  .replace(/</g, "&lt;")
-  .replace(/>/g, "&gt;");
-
-writeFileSync(
-  resolve(client, "robots.txt"),
-  `User-agent: *\nAllow: /\nSitemap: ${new URL("sitemap.xml", canonical).href}\n`
-);
-
-writeFileSync(
-  resolve(client, "sitemap.xml"),
-  `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>${xmlUrl}</loc></url>
-</urlset>
-`
-);
 console.log(`Static HTML ready: ${contentId}. Native anchors; network animation retained.`);
