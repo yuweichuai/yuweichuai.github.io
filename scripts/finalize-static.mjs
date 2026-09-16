@@ -6,6 +6,20 @@ import ts from "typescript";
 
 const root = resolve(import.meta.dirname, "..");
 const client = resolve(root, "dist/client");
+const { siteUrl } = JSON.parse(
+  readFileSync(resolve(root, "site.config.json"), "utf8")
+);
+const canonical = new URL(siteUrl);
+
+assert(
+  canonical.protocol === "https:" &&
+    !canonical.search &&
+    !canonical.hash &&
+    !canonical.username &&
+    !canonical.password,
+  "siteUrl must be a public HTTPS URL without credentials, query or fragment"
+);
+assert(canonical.pathname.endsWith("/"), "siteUrl must end with a slash");
 const path = resolve(client, "index.html");
 let html = readFileSync(path, "utf8");
 
@@ -38,4 +52,22 @@ html = html.replace("</head>", `<meta name="site-build" content="${contentId}"><
 writeFileSync(path, html);
 writeFileSync(resolve(client, ".nojekyll"), "");
 writeFileSync(resolve(client, "build-info.json"), JSON.stringify({ contentId, mode: "static-html-native-anchors", builtAt: new Date().toISOString() }, null, 2) + "\n");
+const xmlUrl = canonical.href
+  .replace(/&/g, "&amp;")
+  .replace(/</g, "&lt;")
+  .replace(/>/g, "&gt;");
+
+writeFileSync(
+  resolve(client, "robots.txt"),
+  `User-agent: *\nAllow: /\nSitemap: ${new URL("sitemap.xml", canonical).href}\n`
+);
+
+writeFileSync(
+  resolve(client, "sitemap.xml"),
+  `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>${xmlUrl}</loc></url>
+</urlset>
+`
+);
 console.log(`Static HTML ready: ${contentId}. Native anchors; network animation retained.`);
