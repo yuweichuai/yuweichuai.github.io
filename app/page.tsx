@@ -63,16 +63,16 @@ const appointments = [
     detail: "SnT · CLARITY project",
   },
   {
-    period: "Dec 2025 — Mar 2026",
+    period: ["Dec 2025 – Mar 2026", "Oct 2026 – Present"],
     title: "Visiting Research Fellow",
     institution: "University of Oxford",
-    detail: "Oxford Internet Institute · Wolfson College · Host: Mohsen Mosleh",
+    detail: "Oxford Internet Institute · Host: Prof. Mohsen Mosleh",
   },
   {
     period: "Jun — Sep 2025",
     title: "Visiting Doctoral Student",
     institution: "Tsinghua University",
-    detail: "Institute for Network Sciences and Cyberspace · Host: Xin Yi",
+    detail: "Institute for Network Sciences and Cyberspace · Host: Prof. Xin Yi",
   },
 ];
 
@@ -303,7 +303,11 @@ export default function Home() {
             <ol className="career-list">
               {appointments.map((item) => (
                 <li key={item.title}>
-                  <p className="career-period">{item.period}</p>
+                  <div className="career-period">
+                    {Array.isArray(item.period)
+                      ? item.period.map((p) => <p key={p}>{p}</p>)
+                      : <p>{item.period}</p>}
+                  </div>
                   <div>
                     <h3>{item.title}</h3>
                     <p className="career-institution">{item.institution}</p>
