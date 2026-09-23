@@ -31,6 +31,15 @@ const newsUpdates = [
   },
   {
     date: "2026-08",
+    title: "New preprint",
+    description:
+      <>
+        The downstream effects of community notes on misinformation producers are divergent.{" "}
+        Read our preprint on <ExternalLink href="https://arxiv.org/abs/2608.27526" className="paper-link">arXiv</ExternalLink>
+      </>
+  },
+  {
+    date: "2026-08",
     title: "EMNLP 2026",
     description:
       "One paper accepted in the EMNLP 2026 main conference, to be held in Budapest, Hungary from October 24–29, 2026.",
@@ -229,7 +238,7 @@ export default function Home() {
             </p>
             <p className="current-note">
               <span>Current work</span>
-              Studying the downstream effects of community notes on misinformation producers. Read our preprint on <ExternalLink href="https://arxiv.org/abs/2608.27526v1" className="paper-link">arXiv</ExternalLink>
+              Causal evaluation of location transparency feature on \X (with Thomas Renault, David Rand, Mohsen Mosleh); the effect of community notes on misinformation producers (with Thomas Renault, Nicolas Pröllochs, Gabriele Lenzini, Mohsen Mosleh).
             </p>
           </section>
 
