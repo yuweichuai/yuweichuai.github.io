@@ -18,6 +18,18 @@ const profileLinks = [
 
 const newsUpdates = [
   {
+    date: "2026-09",
+    title: "New preprint",
+    description:
+      <>
+        We studied X's location transparency feature and found it can reduce
+        activity by accounts misrepresenting their location. Read our preprint on{" "}
+        <ExternalLink href="https://arxiv.org/abs/2609.25933" className="paper-link">
+          arXiv
+        </ExternalLink>.
+      </>
+  },
+  {
     date: "2026-08",
     title: "EMNLP 2026",
     description:
