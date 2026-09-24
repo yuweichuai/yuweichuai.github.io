@@ -238,7 +238,7 @@ export default function Home() {
             </p>
             <p className="current-note">
               <span>Current work</span>
-              Causal evaluation of location transparency feature on \X (with Thomas Renault, David Rand, Mohsen Mosleh); the effect of community notes on misinformation producers (with Thomas Renault, Nicolas Pröllochs, Gabriele Lenzini, Mohsen Mosleh).
+              Causal evaluation of location transparency feature on X (with Thomas Renault, David Rand, Mohsen Mosleh); the effect of community notes on misinformation producers (with Thomas Renault, Nicolas Pröllochs, Gabriele Lenzini, Mohsen Mosleh).
             </p>
           </section>
 
