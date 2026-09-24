@@ -359,12 +359,12 @@ export default function Home() {
             <div className="section-heading"><h2 id="projects-heading">Funded research</h2></div>
             <div className="project-list">
               <article>
-                <div className="project-heading"><h3>CLARITY</h3><span>FNR CORE 2025 · FNR / DFG</span></div>
+                <div className="project-heading"><h3>CLARITY</h3><span>FNR CORE 2025 · FNR / DFG · €694,000</span></div>
                 <p>Community-led analysis and reporting to improve trust and transparency.</p>
                 <p className="career-detail">Co-developed the proposal with Gabriele Lenzini (PI) and Nicolas Pröllochs (co-PI).</p>
               </article>
               <article>
-                <div className="project-heading"><h3>REMEDIS</h3><span>FNR / FNRS 2021</span></div>
+                <div className="project-heading"><h3>REMEDIS</h3><span>FNR / FNRS 2021 · €747,000</span></div>
                 <p>Regulatory and other solutions to mitigate online disinformation.</p>
                 <p className="career-detail">Doctoral researcher studying online misinformation and its interventions.</p>
               </article>
