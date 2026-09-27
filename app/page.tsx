@@ -138,18 +138,19 @@ const invitedTalks = [
 ].sort((a, b) => b.date.localeCompare(a.date));
 
 const interviews = [
-  { outlet: "X/Twitter", date: "2025-09", href: ""},
-  { outlet: "Meta", date: "2025-03", href: ""},
-  { outlet: "Columbia Journalism Review", date: "2025-01", href: ""},
-  { outlet: "Poynter Media", date: "2024-09", href: "https://www.poynter.org/fact-checking/2024/how-elon-musk-twitter-takeover-accelerated-misinformation/"}
+  { outlet: "X/Twitter", date: "2025-09", href: "", title: "Comments as early fact-checking signals"},
+  { outlet: "Meta", date: "2025-03", href: "", title: "External expert to inform Meta’s product and policy decision-making"},
+  { outlet: "Columbia Journalism Review", date: "2025-01", href: "", title: "Obstacle for Community Notes to be successful"},
+  { outlet: "Poynter Media", date: "2024-09", href: "https://www.poynter.org/fact-checking/2024/how-elon-musk-twitter-takeover-accelerated-misinformation/", title: "Fact-checking on X/Twitter"}
   // Add more interviews here. `href` and `detail` are optional.
 ].sort((a, b) => b.date.localeCompare(a.date));
 
 const mediaCoverage = [
-  { outlet: "MIT Technology Review", date: "2025-01", href: "https://www.technologyreview.com/2025/01/29/1110630/three-reasons-meta-will-struggle-with-community-fact-checking/" },
-  { outlet: "Nature News", date: "2025-01", href: "https://www.nature.com/articles/d41586-025-00027-0" },
-  { outlet: "The Washington Post", date: "2024-10", href: "https://www.washingtonpost.com/technology/2024/10/30/elon-musk-x-fact-check-community-notes-misinformation/" },
-  { outlet: "New Scientist", date: "2025-01", href: "https://www.newscientist.com/article/2462974-are-tech-firms-giving-up-on-policing-their-platforms/" }
+  { outlet: "MIT Technology Review", date: "2025-01", href: "https://www.technologyreview.com/2025/01/29/1110630/three-reasons-meta-will-struggle-with-community-fact-checking/", title: "Three reasons Meta will struggle with community fact-checking"},
+  { outlet: "Nature News", date: "2025-01", href: "https://www.nature.com/articles/d41586-025-00027-0", title: "Does fact-checking work? What the science says"},
+  { outlet: "The Washington Post", date: "2024-10", href: "https://www.washingtonpost.com/technology/2024/10/30/elon-musk-x-fact-check-community-notes-misinformation/", title: "Elon Musk says X users fight falsehoods. The falsehoods are winning"},
+  { outlet: "New Scientist", date: "2025-01", href: "https://www.newscientist.com/article/2462974-are-tech-firms-giving-up-on-policing-their-platforms/", title: "Are tech firms giving up on policing their platforms?"},
+  { outlet: "New Scientist", date: "2020-05", href: "https://www.newscientist.com/article/2242452-fake-news-gets-shared-more-when-it-is-angry-and-anxiety-inducing/", title: "Fake news gets shared more when it is angry and anxiety-inducing"}
   // Add more coverage here. `href` is optional (adds a link when set).
 ].sort((a, b) => b.date.localeCompare(a.date));
 
@@ -484,8 +485,9 @@ export default function Home() {
                     <time className="news-date" dateTime={item.date}>{newsDateLabel(item.date)}</time>
                     <div className="news-body">
                       <p className="news-title">
-                        {item.href ? <ExternalLink href={item.href} className="news-link">{item.outlet}</ExternalLink> : item.outlet}
+                        {item.href ? <ExternalLink href={item.href} className="news-link">{item.title}</ExternalLink> : item.title}
                       </p>
+                      <p className="news-description">{item.venue}</p>
                     </div>
                   </li>
                 ))}
@@ -501,8 +503,9 @@ export default function Home() {
                     <time className="news-date" dateTime={item.date}>{newsDateLabel(item.date)}</time>
                     <div className="news-body">
                       <p className="news-title">
-                        {item.href ? <ExternalLink href={item.href} className="news-link">{item.outlet}</ExternalLink> : item.outlet}
+                        {item.href ? <ExternalLink href={item.href} className="news-link">{item.title}</ExternalLink> : item.title}
                       </p>
+                      <p className="news-description">{item.venue}</p>
                     </div>
                   </li>
                 ))}
