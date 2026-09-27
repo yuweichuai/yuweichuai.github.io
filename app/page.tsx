@@ -262,7 +262,7 @@ export default function Home() {
 
             <dl className="stat-row">
               <div><dt>{publications.length}</dt><dd>Publications</dd></div>
-              <div><dt>[N]</dt><dd>Citations</dd></div>
+              {/*<div><dt>[N]</dt><dd>Citations</dd></div>*/}
               <div><dt>{invitedTalks.length}</dt><dd>Invited talks</dd></div>
               <div><dt>{interviews.length + mediaCoverage.length}</dt><dd>Media features</dd></div>
             </dl>
