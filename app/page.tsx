@@ -459,17 +459,17 @@ export default function Home() {
 
           <section className="content-section" id="talks-media" aria-labelledby="talks-media-heading">
             <div className="section-heading"><h2 id="talks-media-heading">Talks & media</h2></div>
-
             <div className="subsection">
               <h3>Invited talks</h3>
-              <ul className="talk-list">
+              <ul className="news-list">
                 {invitedTalks.map((talk) => (
-                  <li key={talk.title}>
-                    <time className="talk-date" dateTime={talk.date}>{newsDateLabel(talk.date)}</time>
-                    <span className="talk-body">
-                      <strong>{talk.title}</strong>
-                      <span className="talk-venue">{talk.venue}</span>
-                    </span>
+                  <li key={talk.title} className="news-item">
+                    <div className="news-marker" aria-hidden="true" />
+                    <time className="news-date" dateTime={talk.date}>{newsDateLabel(talk.date)}</time>
+                    <div className="news-body">
+                      <p className="news-title">{talk.title}</p>
+                      <p className="news-description">{talk.venue}</p>
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -477,11 +477,16 @@ export default function Home() {
 
             <div className="subsection">
               <h3>Interviews</h3>
-              <ul className="media-list">
+              <ul className="news-list">
                 {interviews.map((item) => (
-                  <li key={item.outlet}>
-                    {item.href ? <ExternalLink href={item.href} className="media-link">{item.outlet}</ExternalLink> : <span className="media-outlet">{item.outlet}</span>}
-                    <time className="media-date" dateTime={item.date}>{newsDateLabel(item.date)}</time>
+                  <li key={item.outlet} className="news-item">
+                    <div className="news-marker" aria-hidden="true" />
+                    <time className="news-date" dateTime={item.date}>{newsDateLabel(item.date)}</time>
+                    <div className="news-body">
+                      <p className="news-title">
+                        {item.href ? <ExternalLink href={item.href} className="news-link">{item.outlet}</ExternalLink> : item.outlet}
+                      </p>
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -489,11 +494,16 @@ export default function Home() {
 
             <div className="subsection">
               <h3>Media coverage</h3>
-              <ul className="media-list">
+              <ul className="news-list">
                 {mediaCoverage.map((item) => (
-                  <li key={item.outlet}>
-                    {item.href ? <ExternalLink href={item.href} className="media-link">{item.outlet}</ExternalLink> : <span className="media-outlet">{item.outlet}</span>}
-                    <time className="media-date" dateTime={item.date}>{newsDateLabel(item.date)}</time>
+                  <li key={item.outlet} className="news-item">
+                    <div className="news-marker" aria-hidden="true" />
+                    <time className="news-date" dateTime={item.date}>{newsDateLabel(item.date)}</time>
+                    <div className="news-body">
+                      <p className="news-title">
+                        {item.href ? <ExternalLink href={item.href} className="news-link">{item.outlet}</ExternalLink> : item.outlet}
+                      </p>
+                    </div>
                   </li>
                 ))}
               </ul>
