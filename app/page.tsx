@@ -80,7 +80,7 @@ const hfModels = [
   {
     name: "Multilingual Community Notes topic classifier",
     description: "TwHIN-BERT fine-tuned to assign zero or more of ten topics to a post and its associated Community Note summaries.",
-    href: "ychuai/community-notes-topic-classifier",
+    href: "https://huggingface.co/ychuai/community-notes-topic-classifier",
     tag: "Text Classification",
   },
   // Add one object per model, most recent first.
@@ -149,7 +149,7 @@ const mediaCoverage = [
   { outlet: "MIT Technology Review", date: "2025-01", href: "https://www.technologyreview.com/2025/01/29/1110630/three-reasons-meta-will-struggle-with-community-fact-checking/" },
   { outlet: "Nature News", date: "2025-01", href: "https://www.nature.com/articles/d41586-025-00027-0" },
   { outlet: "The Washington Post", date: "2024-10", href: "https://www.washingtonpost.com/technology/2024/10/30/elon-musk-x-fact-check-community-notes-misinformation/" },
-  { outlet: "New Scientist", date: "2025-01", href: "https://www.newscientist.com/article/2462974-are-tech-firms-giving-up-on-policing-their-platforms/" },
+  { outlet: "New Scientist", date: "2025-01", href: "https://www.newscientist.com/article/2462974-are-tech-firms-giving-up-on-policing-their-platforms/" }
   // Add more coverage here. `href` is optional (adds a link when set).
 ].sort((a, b) => b.date.localeCompare(a.date));
 
@@ -357,7 +357,7 @@ export default function Home() {
           <section className="content-section" id="models" aria-labelledby="models-heading">
             <div className="section-heading">
               <h2 id="models-heading">Published models</h2>
-              <ExternalLink href="https://huggingface.co/your-username" className="section-link">Hugging Face</ExternalLink>
+              <ExternalLink href="https://huggingface.co/ychuai" className="section-link">Hugging Face</ExternalLink>
             </div>
             <ul className="model-list">
               {hfModels.map((model) => (
