@@ -487,7 +487,7 @@ export default function Home() {
                       <p className="news-title">
                         {item.href ? <ExternalLink href={item.href} className="news-link">{item.title}</ExternalLink> : item.title}
                       </p>
-                      <p className="news-description">{item.venue}</p>
+                      <p className="news-description">{item.outlet}</p>
                     </div>
                   </li>
                 ))}
@@ -505,7 +505,7 @@ export default function Home() {
                       <p className="news-title">
                         {item.href ? <ExternalLink href={item.href} className="news-link">{item.title}</ExternalLink> : item.title}
                       </p>
-                      <p className="news-description">{item.venue}</p>
+                      <p className="news-description">{item.outlet}</p>
                     </div>
                   </li>
                 ))}
