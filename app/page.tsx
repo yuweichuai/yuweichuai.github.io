@@ -449,7 +449,7 @@ export default function Home() {
           </div>
 
           <section className="content-section" id="recognition" aria-labelledby="recognition-heading">
-            <div className="section-heading"><h2 id="recognition-heading">Recognition & media</h2></div>
+            <div className="section-heading"><h2 id="recognition-heading">Recognition</h2></div>
             <ul className="award-list">
               <li><span>Guillaume Dupaix International PhD Scholarship</span><span>2025</span></li>
               <li><span>Government Scholarship of the Grand Duchy of Luxembourg</span><span>2022</span></li>
@@ -482,7 +482,7 @@ export default function Home() {
                   <li key={item.outlet}>
                     <div className="media-row">
                       <span className="media-outlet">
-                        {item.href ? <ExternalLink href={item.href}>{item.outlet}</ExternalLink> : item.outlet}
+                        {item.href ? <ExternalLink href={item.href} className="media-link">{item.outlet}</ExternalLink> : item.outlet}
                       </span>
                       {item.date && <time className="media-date" dateTime={item.date}>{newsDateLabel(item.date)}</time>}
                     </div>
