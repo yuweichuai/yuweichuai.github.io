@@ -410,19 +410,19 @@ h3 { font-size: 1rem; font-weight: 600; line-height: 1.5; }
 .subsection { margin-top: 1.5rem; }
 .subsection:first-of-type { margin-top: 0; }
 .subsection h3 { font-size: 0.9375rem; font-weight: 600; color: var(--ink); margin-bottom: 0.6rem; }
-.talk-list, .media-list { list-style: none; padding: 0; display: grid; gap: 0.6rem; font-size: 0.875rem; }
-.talk-list > li { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 1rem; }
-.talk-date { color: var(--muted); font-size: 0.8125rem; font-variant-numeric: tabular-nums; padding-top: 0.1rem; }
-.talk-body { display: flex; flex-direction: column; gap: 0.1rem; }
-.talk-venue { color: var(--muted); font-size: 0.8125rem; }
-.media-list { list-style: none; padding: 0; margin: 0; font-size: 0.875rem; border-top: 1px solid var(--border); }
-.media-list > li { padding: 0.85rem 0; border-bottom: 1px solid var(--border); }
-.media-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
-.media-outlet { font-weight: 600; color: var(--ink); }
+.talk-list, .media-list { list-style: none; padding: 0; margin: 0; font-size: 0.875rem; border-top: 1px solid var(--border); }
+.talk-list > li { display: flex; gap: 1rem; padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
+.talk-date, .media-date { color: var(--muted); font-size: 0.8125rem; font-variant-numeric: tabular-nums; flex: none; white-space: nowrap; }
+.talk-date { width: 4.5rem; padding-top: 0.05rem; }
+.talk-body { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.35rem; min-width: 0; }
+.talk-body strong { font-weight: 600; }
+.talk-venue { color: var(--muted); }
+.talk-venue::before { content: "·"; margin-right: 0.35rem; }
+
+.media-list > li { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.55rem 0; border-bottom: 1px solid var(--border); }
+.media-outlet { color: var(--ink); }
 .media-link { display: inline-flex; align-items: center; gap: 0.15rem; color: var(--accent); }
 .media-link:hover { text-decoration: underline; text-underline-offset: 0.17rem; }
-.media-date { color: var(--muted); font-size: 0.8125rem; font-variant-numeric: tabular-nums; flex: none; white-space: nowrap; }
-.media-detail { color: var(--muted); font-size: 0.8125rem; line-height: 1.6; margin-top: 0.35rem; max-width: 44rem; }
 
 .site-footer { margin-top: 2.8rem; padding: 1.25rem 0 2rem; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem; color: var(--muted); font-size: 0.8125rem; }
 .site-footer p span { margin-inline: 0.3rem; }

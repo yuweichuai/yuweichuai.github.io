@@ -138,10 +138,10 @@ const invitedTalks = [
 ].sort((a, b) => b.date.localeCompare(a.date));
 
 const interviews = [
-  { outlet: "X/Twitter", date: "2025-09", href: "", detail: "Topic: Comments as early fact-checking signals; Interviewers: Mr. Jay Baxter, Community Notes ML Lead at X/Twitter; Mr. Keith Coleman, VP of Product at X/Twitter" },
-  { outlet: "Meta", date: "2025-03", href: "", detail: "Topic: External expert to inform Meta’s product and policy decision-making; Interviewer: Dr. Louisa Bartolo, Content Policy Manager at Meta" },
-  { outlet: "Columbia Journalism Review", date: "2025-01", href: "", detail: "Topic: Obstacle for Community Notes to be successful; Interviewer: Ms. Sarah Grevy Gotfredsen, Investigative Journalism Fellow, Columbia University, New York, US" },
-  { outlet: "Poynter Media", date: "2024-09", href: "https://www.poynter.org/fact-checking/2024/how-elon-musk-twitter-takeover-accelerated-misinformation/", detail: "Topic: Fact-checking on X/Twitter; Interviewer: Ms. Angela Fu, Poynter Media Reporter" }
+  { outlet: "X/Twitter", date: "2025-09", href: ""},
+  { outlet: "Meta", date: "2025-03", href: ""},
+  { outlet: "Columbia Journalism Review", date: "2025-01", href: ""},
+  { outlet: "Poynter Media", date: "2024-09", href: "https://www.poynter.org/fact-checking/2024/how-elon-musk-twitter-takeover-accelerated-misinformation/"}
   // Add more interviews here. `href` and `detail` are optional.
 ].sort((a, b) => b.date.localeCompare(a.date));
 
@@ -480,13 +480,8 @@ export default function Home() {
               <ul className="media-list">
                 {interviews.map((item) => (
                   <li key={item.outlet}>
-                    <div className="media-row">
-                      <span className="media-outlet">
-                        {item.href ? <ExternalLink href={item.href} className="media-link">{item.outlet}</ExternalLink> : item.outlet}
-                      </span>
-                      {item.date && <time className="media-date" dateTime={item.date}>{newsDateLabel(item.date)}</time>}
-                    </div>
-                    {item.detail && <p className="media-detail">{item.detail}</p>}
+                    {item.href ? <ExternalLink href={item.href} className="media-link">{item.outlet}</ExternalLink> : <span className="media-outlet">{item.outlet}</span>}
+                    <time className="media-date" dateTime={item.date}>{newsDateLabel(item.date)}</time>
                   </li>
                 ))}
               </ul>
@@ -497,12 +492,8 @@ export default function Home() {
               <ul className="media-list">
                 {mediaCoverage.map((item) => (
                   <li key={item.outlet}>
-                    <div className="media-row">
-                      <span className="media-outlet">
-                        {item.href ? <ExternalLink href={item.href}>{item.outlet}</ExternalLink> : item.outlet}
-                      </span>
-                      {item.date && <time className="media-date" dateTime={item.date}>{newsDateLabel(item.date)}</time>}
-                    </div>
+                    {item.href ? <ExternalLink href={item.href} className="media-link">{item.outlet}</ExternalLink> : <span className="media-outlet">{item.outlet}</span>}
+                    <time className="media-date" dateTime={item.date}>{newsDateLabel(item.date)}</time>
                   </li>
                 ))}
               </ul>
