@@ -462,6 +462,7 @@ export default function Home() {
             <div className="section-heading"><h2 id="talks-media-heading">Talks & media</h2></div>
             <div className="subsection">
               <h3>Invited talks</h3>
+              <div className="news-scroll">
               <ul className="news-list">
                 {invitedTalks.map((talk) => (
                   <li key={talk.title} className="news-item">
@@ -474,10 +475,12 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
+              </div>
             </div>
 
             <div className="subsection">
               <h3>Interviews</h3>
+              <div className="news-scroll">
               <ul className="news-list">
                 {interviews.map((item) => (
                   <li key={item.outlet} className="news-item">
@@ -492,10 +495,12 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
+              </div>
             </div>
 
             <div className="subsection">
               <h3>Media coverage</h3>
+              <div className="news-scroll">
               <ul className="news-list">
                 {mediaCoverage.map((item) => (
                   <li key={item.outlet} className="news-item">
@@ -510,6 +515,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
+              </div>
             </div>
           </section>
 
