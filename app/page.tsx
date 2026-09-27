@@ -76,6 +76,16 @@ const researchAreas = [
 
 const publications = getPublications(bibliography, venues);
 
+const hfModels = [
+  {
+    name: "Multilingual Community Notes topic classifier",
+    description: "TwHIN-BERT fine-tuned to assign zero or more of ten topics to a post and its associated Community Note summaries.",
+    href: "ychuai/community-notes-topic-classifier",
+    tag: "Text Classification",
+  },
+  // Add one object per model, most recent first.
+];
+
 const appointments = [
   {
     period: "May 2026 — Present",
@@ -117,6 +127,32 @@ const education = [
     detail: "Outstanding Graduate, 2019.",
   },
 ];
+
+const invitedTalks = [
+  {
+    date: "2025-09",
+    title: "Community-based fact-checking",
+    venue: "Tsinghua University, China",
+  },
+  // Add one object per talk, most recent first. Date format: "YYYY-MM".
+].sort((a, b) => b.date.localeCompare(a.date));
+
+const interviews = [
+  { outlet: "X/Twitter", date: "2025-09", href: "", detail: "Topic: Comments as early fact-checking signals; Interviewers: Mr. Jay Baxter, Community Notes ML Lead at X/Twitter; Mr. Keith Coleman, VP of Product at X/Twitter" },
+  { outlet: "Meta", date: "2025-03", href: "", detail: "Topic: External expert to inform Meta’s product and policy decision-making; Interviewer: Dr. Louisa Bartolo, Content Policy Manager at Meta" }
+  { outlet: "Columbia Journalism Review", date: "2025-01", href: "", detail: "Topic: Obstacle for Community Notes to be successful; Interviewer: Ms. Sarah Grevy Gotfredsen, Investigative Journalism Fellow, Columbia University, New York, US" }
+  { outlet: "Poynter Media", date: "2024-09", href: "https://www.poynter.org/fact-checking/2024/how-elon-musk-twitter-takeover-accelerated-misinformation/", detail: "Topic: Fact-checking on X/Twitter; Interviewer: Ms. Angela Fu, Poynter Media Reporter" }
+
+  // Add more interviews here. `href` and `detail` are optional.
+].sort((a, b) => b.date.localeCompare(a.date));
+
+const mediaCoverage = [
+  { outlet: "MIT Technology Review", date: "2025-01", href: "https://www.technologyreview.com/2025/01/29/1110630/three-reasons-meta-will-struggle-with-community-fact-checking/" },
+  { outlet: "Nature News", date: "2025-01", href: "https://www.nature.com/articles/d41586-025-00027-0" },
+  { outlet: "The Washington Post", date: "2024-10", href: "https://www.washingtonpost.com/technology/2024/10/30/elon-musk-x-fact-check-community-notes-misinformation/" },
+  { outlet: "New Scientist", date: "2025-01", href: "https://www.newscientist.com/article/2462974-are-tech-firms-giving-up-on-policing-their-platforms/" },
+  // Add more coverage here. `href` is optional (adds a link when set).
+].sort((a, b) => b.date.localeCompare(a.date));
 
 function ExternalLink({
   href,
@@ -319,6 +355,33 @@ export default function Home() {
             </p>
           </section>
 
+          <section className="content-section" id="models" aria-labelledby="models-heading">
+            <div className="section-heading">
+              <h2 id="models-heading">Published models</h2>
+              <ExternalLink href="https://huggingface.co/your-username" className="section-link">Hugging Face</ExternalLink>
+            </div>
+            <ul className="model-list">
+              {hfModels.map((model) => (
+                <li key={model.name}>
+                  <article className="model">
+                    <div className="model-content">
+                      {model.tag && <p className="model-tag">{model.tag}</p>}
+                      <h3>
+                        {model.href ? <a href={model.href} target="_blank" rel="noopener noreferrer">{model.name}</a> : model.name}
+                      </h3>
+                      <p className="model-description">{model.description}</p>
+                    </div>
+                    {model.href && (
+                      <ExternalLink href={model.href} className="paper-link">
+                        <span className="sr-only">{model.name}: </span>Model
+                      </ExternalLink>
+                    )}
+                  </article>
+                </li>
+              ))}
+            </ul>
+          </section>
+
           <section className="content-section" id="experience" aria-labelledby="experience-heading">
             <div className="section-heading"><h2 id="experience-heading">Appointments & visits</h2></div>
             <ol className="career-list">
@@ -393,11 +456,58 @@ export default function Home() {
               <li><span>Government Scholarship of the Grand Duchy of Luxembourg</span><span>2022</span></li>
               <li><span>Outstanding Graduate, Hefei University of Technology</span><span>2019</span></li>
             </ul>
-            <p className="media-copy">
-              Research covered by <span>MIT Technology Review</span>, <span>Nature News</span>,{" "}
-              <span>The Washington Post</span>, <span>New Scientist</span>, and <span>Poynter</span>.
-              Interviews also include Columbia Journalism Review.
-            </p>
+          </section>
+
+          <section className="content-section" id="talks-media" aria-labelledby="talks-media-heading">
+            <div className="section-heading"><h2 id="talks-media-heading">Talks & media</h2></div>
+
+            <div className="subsection">
+              <h3>Invited talks</h3>
+              <ul className="talk-list">
+                {invitedTalks.map((talk) => (
+                  <li key={talk.title}>
+                    <time className="talk-date" dateTime={talk.date}>{newsDateLabel(talk.date)}</time>
+                    <span className="talk-body">
+                      <strong>{talk.title}</strong>
+                      <span className="talk-venue">{talk.venue}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="subsection">
+              <h3>Interviews</h3>
+              <ul className="media-list">
+                {interviews.map((item) => (
+                  <li key={item.outlet}>
+                    <div className="media-row">
+                      <span className="media-outlet">
+                        {item.href ? <ExternalLink href={item.href}>{item.outlet}</ExternalLink> : item.outlet}
+                      </span>
+                      {item.date && <time className="media-date" dateTime={item.date}>{newsDateLabel(item.date)}</time>}
+                    </div>
+                    {item.detail && <p className="media-detail">{item.detail}</p>}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="subsection">
+              <h3>Media coverage</h3>
+              <ul className="media-list">
+                {mediaCoverage.map((item) => (
+                  <li key={item.outlet}>
+                    <div className="media-row">
+                      <span className="media-outlet">
+                        {item.href ? <ExternalLink href={item.href}>{item.outlet}</ExternalLink> : item.outlet}
+                      </span>
+                      {item.date && <time className="media-date" dateTime={item.date}>{newsDateLabel(item.date)}</time>}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </section>
 
           <footer className="site-footer" id="contact">

@@ -389,6 +389,39 @@ h3 { font-size: 1rem; font-weight: 600; line-height: 1.5; }
 .media-copy { margin-top: 1.2rem; color: var(--muted); font-size: 0.875rem; line-height: 1.8; }
 .media-copy span { color: var(--ink); }
 
+/* Published models */
+.model-list { padding: 0; list-style: none; border-top: 1px solid var(--border); }
+.model-list > li { border-bottom: 1px solid var(--border); }
+.model {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  column-gap: 1rem;
+  padding: 1.1rem 0;
+}
+.model-content { min-width: 0; }
+.model-tag { display: inline-flex; color: var(--accent); font-size: 0.8125rem; font-weight: 550; margin-bottom: 0.25rem; }
+.model h3 { font-size: 1rem; line-height: 1.5; letter-spacing: -0.012em; }
+.model h3 a:hover { text-decoration: underline; text-underline-offset: 0.17rem; }
+.model-description { color: var(--muted); font-size: 0.875rem; line-height: 1.6; margin-top: 0.35rem; }
+.model:focus-within { background: var(--surface); }
+
+/* Talks & media */
+.subsection { margin-top: 1.5rem; }
+.subsection:first-of-type { margin-top: 0; }
+.subsection h3 { font-size: 0.9375rem; font-weight: 600; color: var(--ink); margin-bottom: 0.6rem; }
+.talk-list, .media-list { list-style: none; padding: 0; display: grid; gap: 0.6rem; font-size: 0.875rem; }
+.talk-list > li { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 1rem; }
+.talk-date { color: var(--muted); font-size: 0.8125rem; font-variant-numeric: tabular-nums; padding-top: 0.1rem; }
+.talk-body { display: flex; flex-direction: column; gap: 0.1rem; }
+.talk-venue { color: var(--muted); font-size: 0.8125rem; }
+.media-list > li { color: var(--ink); }
+.media-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.media-outlet a { color: var(--accent); }
+.media-outlet a:hover { text-decoration: underline; text-underline-offset: 0.17rem; }
+.media-date { color: var(--muted); font-size: 0.8125rem; font-variant-numeric: tabular-nums; flex: none; white-space: nowrap; }
+.media-detail { color: var(--muted); font-size: 0.8125rem; margin-top: 0.15rem; }
+
 .site-footer { margin-top: 2.8rem; padding: 1.25rem 0 2rem; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem; color: var(--muted); font-size: 0.8125rem; }
 .site-footer p span { margin-inline: 0.3rem; }
 .analytics-controls { padding-bottom: 1rem; }
@@ -430,6 +463,8 @@ h3 { font-size: 1rem; font-weight: 600; line-height: 1.5; }
   .publication { grid-template-columns: minmax(0, 1fr); row-gap: 0.15rem; }
   .paper-link { grid-column: 1; justify-self: start; margin-top: 0.15rem; }
   .career-list > li { grid-template-columns: 1fr; gap: 0.2rem; }
+  .model { grid-template-columns: minmax(0, 1fr); row-gap: 0.15rem; }
+  .talk-list > li { grid-template-columns: 1fr; gap: 0.2rem; }
   .academic-columns { grid-template-columns: 1fr; gap: 0; }
   .news-item { grid-template-columns: 1fr; gap: 0.2rem; padding-left: 1rem; }
   .news-date { order: -1; }
