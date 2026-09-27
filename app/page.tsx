@@ -300,6 +300,20 @@ export default function Home() {
             </p>
           </section>
 
+          <section className="content-section research-section" id="research" aria-labelledby="research-heading">
+            <div className="section-heading">
+              <h2 id="research-heading">Research interests</h2>
+            </div>
+            <dl className="research-list">
+              {researchAreas.map((area) => (
+                <div key={area.title}>
+                  <dt>{area.title}</dt>
+                  <dd>{area.description}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+
           <section className="content-section" id="news" aria-labelledby="news-heading">
             <div className="section-heading">
               <h2 id="news-heading">News</h2>
