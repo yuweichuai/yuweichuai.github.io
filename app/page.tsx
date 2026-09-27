@@ -139,10 +139,9 @@ const invitedTalks = [
 
 const interviews = [
   { outlet: "X/Twitter", date: "2025-09", href: "", detail: "Topic: Comments as early fact-checking signals; Interviewers: Mr. Jay Baxter, Community Notes ML Lead at X/Twitter; Mr. Keith Coleman, VP of Product at X/Twitter" },
-  { outlet: "Meta", date: "2025-03", href: "", detail: "Topic: External expert to inform Meta’s product and policy decision-making; Interviewer: Dr. Louisa Bartolo, Content Policy Manager at Meta" }
-  { outlet: "Columbia Journalism Review", date: "2025-01", href: "", detail: "Topic: Obstacle for Community Notes to be successful; Interviewer: Ms. Sarah Grevy Gotfredsen, Investigative Journalism Fellow, Columbia University, New York, US" }
+  { outlet: "Meta", date: "2025-03", href: "", detail: "Topic: External expert to inform Meta’s product and policy decision-making; Interviewer: Dr. Louisa Bartolo, Content Policy Manager at Meta" },
+  { outlet: "Columbia Journalism Review", date: "2025-01", href: "", detail: "Topic: Obstacle for Community Notes to be successful; Interviewer: Ms. Sarah Grevy Gotfredsen, Investigative Journalism Fellow, Columbia University, New York, US" },
   { outlet: "Poynter Media", date: "2024-09", href: "https://www.poynter.org/fact-checking/2024/how-elon-musk-twitter-takeover-accelerated-misinformation/", detail: "Topic: Fact-checking on X/Twitter; Interviewer: Ms. Angela Fu, Poynter Media Reporter" }
-
   // Add more interviews here. `href` and `detail` are optional.
 ].sort((a, b) => b.date.localeCompare(a.date));
 
