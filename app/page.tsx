@@ -14,7 +14,6 @@ const profileLinks = [
   { label: "ORCID", href: "https://orcid.org/0000-0001-6181-7311" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/yuwei-chuai-804916221/" },
   { label: "X / Twitter", href: "https://x.com/yuweichuai" },
-  { label: "Hugging Face", href: huggingFaceUrl },
 ];
 
 const newsUpdates = [
@@ -119,18 +118,6 @@ const education = [
   },
 ];
 
-const huggingFaceUrl = "https://huggingface.co/ychuai";
-
-const models = [
-  {
-    id: "community-notes-topic-classifier",
-    name: "Multilingual Community Notes topic classifier",
-    task: "Text classification",
-    description: "TwHIN-BERT fine-tuned to assign zero or more of ten topics to a post and its associated Community Note summaries. The unit of classification is the combined post record, not an individual note.",
-  },
-  // Add more models here.
-];
-
 function ExternalLink({
   href,
   children,
@@ -176,7 +163,6 @@ export default function Home() {
             <a href="#about">About</a>
             <a href="#research">Research</a>
             <a href="#publications">Publications</a>
-            <a href="#models">Models</a>
             <a href="#experience">Experience</a>
           </nav>
         </div>
@@ -331,42 +317,6 @@ export default function Home() {
               A full list of publications and working papers is available on{" "}
               <a href={scholarUrl} target="_blank" rel="noopener noreferrer">Google Scholar</a>.
             </p>
-          </section>
-
-          <section className="content-section" id="models" aria-labelledby="models-heading">
-            <div className="section-heading">
-              <h2 id="models-heading">Models</h2>
-              <ExternalLink href={huggingFaceUrl} className="section-link">
-                Hugging Face
-              </ExternalLink>
-            </div>
-
-            <ul className="publication-list">
-              {models.map((model) => {
-                const href = `${huggingFaceUrl}/${model.id}`;
-
-                return (
-                  <li key={model.id}>
-                    <article className="publication">
-                      <div className="publication-content">
-                        <p className="publication-meta">{model.task}</p>
-                        <h3>
-                          <a href={href} target="_blank" rel="noopener noreferrer">
-                            {model.name}
-                          </a>
-                        </h3>
-                        <p className="career-detail">{model.description}</p>
-                      </div>
-
-                      <ExternalLink href={href} className="paper-link">
-                        <span className="sr-only">{model.name}: </span>
-                        Model card
-                      </ExternalLink>
-                    </article>
-                  </li>
-                );
-              })}
-            </ul>
           </section>
 
           <section className="content-section" id="experience" aria-labelledby="experience-heading">
