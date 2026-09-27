@@ -447,13 +447,13 @@ export default function Home() {
               <div className="section-heading"><h2 id="teaching-heading">Teaching & mentoring</h2></div>
               <p>Guest lecturer on misinformation in the Master in Cybersecurity and Cyber Defense at the University of Luxembourg (2025).</p>
               <p>Previously a teaching assistant for Programming in C at Beihang University (2019–2021).</p>
-              <p className="career-detail">Research supervision: Shuning Zhang (Tsinghua University) and Dai Shi (Tongji University).</p>
+              <p>Research supervision: Shuning Zhang (Tsinghua University) and Dai Shi (Tongji University).</p>
             </section>
             <section className="content-section" aria-labelledby="service-heading">
               <div className="section-heading"><h2 id="service-heading">Academic service</h2></div>
-              <p>Reviewer for WWW, CHI, CSCW, ICWSM, and EMNLP.</p>
-              <p>Journal reviewing includes Information Processing & Management, Digital Journalism, and Humanities and Social Sciences Communications.</p>
-              <p className="career-detail">Program committee: CIVIL session, IEEE DSAA.</p>
+              <p>Conference reviewer for WWW, CHI, CSCW, ICWSM, and EMNLP.</p>
+              <p>Journal reviewing includes Information Processing & Management, Digital Journalism, Humanities and Social Sciences Communications, and PNAS Nexus.</p>
+              <p>Program committee: CIVIL session, IEEE DSAA.</p>
             </section>
           </div>
 
