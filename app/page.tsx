@@ -249,7 +249,6 @@ export default function Home() {
           <section className="about-section" id="about" aria-labelledby="about-heading">
             <div className="about-overview">
               <div className="about-copy">
-                {/*<p className="eyebrow">Computational social science · Online trust and safety</p>*/}
                 <h2 id="about-heading">About me</h2>
                 <p>
                   I study how information spreads online and how digital platforms can
@@ -260,35 +259,45 @@ export default function Home() {
               </div>
               <ResearchNetwork />
             </div>
+
+            <dl className="stat-row">
+              <div><dt>{publications.length}</dt><dd>Publications</dd></div>
+              <div><dt>[N]</dt><dd>Citations</dd></div>
+              <div><dt>{invitedTalks.length}</dt><dd>Invited talks</dd></div>
+              <div><dt>{interviews.length + mediaCoverage.length}</dt><dd>Media features</dd></div>
+            </dl>
+
             <p>
               Trained in computer science and information systems, I combine causal
               inference with large-scale digital trace data, network analysis,
-              LLM-based measurement, and experiments. My first-author publications have appeared in leading interdisciplinary venues 
-              such as <em>Nature Communications</em>, <em>CHI</em>, <em>WWW</em>, <em>CSCW</em>, and <em>ICWSM</em>. 
-              These studies provide some of the first large-scale empirical and causal evidence on the effectiveness, limitations, 
-              and behavioural consequences of community-based fact-checking systems. 
-              Additionally, my work has attracted international media attention through coverage 
-              in <em>MIT Technology Review</em>, <em>The Washington Post</em>, and <em>New Scientist</em>, 
-              and informed discussions surrounding platform governance and content moderation.
+              LLM-based measurement, and experiments. My first-author publications
+              provide some of the first large-scale empirical and causal evidence on
+              the effectiveness, limitations, and behavioural consequences of
+              community-based fact-checking systems, and have informed discussions
+              surrounding platform governance and content moderation.
             </p>
+
+            <ul className="chip-row" aria-label="Selected publication venues">
+              {["Nature Communications", "CHI", "WWW", "CSCW", "ICWSM"].map((venue) => (
+                <li key={venue} className="chip">{venue}</li>
+              ))}
+            </ul>
+
+            <div className="featured-in">
+              <span className="featured-in-label">As featured in</span>
+              <ul className="featured-in-list">
+                {mediaCoverage.map((item) => (
+                  <li key={item.outlet}>
+                    {item.href ? <ExternalLink href={item.href} className="news-link">{item.outlet}</ExternalLink> : item.outlet}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             <p className="current-note">
               <span>Current work</span>
               Causal evaluation of location transparency feature on X (with Thomas Renault, David Rand, Mohsen Mosleh); the effect of community notes on misinformation producers (with Thomas Renault, Nicolas Pröllochs, Gabriele Lenzini, Mohsen Mosleh).
             </p>
-          </section>
-
-          <section className="content-section research-section" id="research" aria-labelledby="research-heading">
-            <div className="section-heading">
-              <h2 id="research-heading">Research interests</h2>
-            </div>
-            <dl className="research-list">
-              {researchAreas.map((area) => (
-                <div key={area.title}>
-                  <dt>{area.title}</dt>
-                  <dd>{area.description}</dd>
-                </div>
-              ))}
-            </dl>
           </section>
 
           <section className="content-section" id="news" aria-labelledby="news-heading">
