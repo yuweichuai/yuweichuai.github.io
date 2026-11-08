@@ -391,6 +391,8 @@ h3 { font-size: 1rem; font-weight: 600; line-height: 1.5; }
 .career-period { color: var(--muted); font-size: 0.8125rem; line-height: 1.8; font-variant-numeric: tabular-nums; }
 .career-institution { font-size: 0.9375rem; margin-top: 0.1rem; }
 .career-detail { color: var(--muted); font-size: 0.875rem; line-height: 1.65; margin-top: 0.2rem; }
+.thesis-award { display: inline-flex; align-items: center; gap: 0.25rem; }
+.thesis-award svg { flex-shrink: 0; color: #a67616; }
 .project-list { border-left: 2px solid var(--border); padding-left: 1.1rem; display: grid; gap: 1.25rem; }
 .project-heading { display: flex; flex-wrap: wrap; gap: 0.4rem 0.8rem; align-items: baseline; }
 .project-heading h3 { color: var(--accent); letter-spacing: 0.03em; }

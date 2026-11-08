@@ -1,4 +1,4 @@
-import { ArrowUpRight, Briefcase, Download, Mail, MapPin } from "lucide-react";
+import { ArrowUpRight, Award, Briefcase, Download, Mail, MapPin } from "lucide-react";
 import { Fragment, type ReactNode } from "react";
 import AnalyticsConsent from "./analytics-consent";
 import ResearchNetwork from "./research-network";
@@ -112,7 +112,10 @@ const education = [
     period: "2022 — 2026",
     title: "PhD in Computer Science",
     institution: "University of Luxembourg, Luxembourg",
-    detail: "Supervisor: Prof. Gabriele Lenzini. Thesis: Computational analysis of misinformation engagement and interventions on social media [Excellent Thesis Award ].",
+    detail: <>
+      Supervisor: Prof. Gabriele Lenzini. Thesis: Computational analysis of misinformation engagement and interventions on social media [
+      <span className="thesis-award">Excellent Thesis Award <Award size={16} strokeWidth={1.8} aria-hidden="true" /></span>].
+    </>,
   },
   {
     period: "2019 — 2022",
