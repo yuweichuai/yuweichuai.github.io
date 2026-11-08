@@ -8,7 +8,7 @@
     "label": "ACL · EMNLP", "badge": "EMNLP",
     "patterns": ["empirical methods in natural language processing"],
     "logo": "",
-    "logos": { "2026": "./logos/icwsm-2026.png"}
+    "logos": { "2026": "./logos/emnlp-2026.png"}
   },
   "www": {
     "label": "The Web Conference", "badge": "WWW",
@@ -17,7 +17,7 @@
     "logos": { "2026": "./logos/www.jpg" }
   },
   "chi": {
-    "label": "ACM CHI", "badge": "CHI",
+    "label": "ACM · CHI", "badge": "CHI",
     "patterns": ["\\bCHI\\b", "human factors in computing systems"],
     "logo": "./logos/sigchi.png",
     "logoAlt": "ACM SIGCHI logo",

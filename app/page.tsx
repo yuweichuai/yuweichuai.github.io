@@ -112,7 +112,7 @@ const education = [
     period: "2022 — 2026",
     title: "PhD in Computer Science",
     institution: "University of Luxembourg, Luxembourg",
-    detail: "Supervisor: Prof. Gabriele Lenzini. Thesis: Computational analysis of misinformation engagement and interventions on social media [Excellent Thesis Award Nomination].",
+    detail: "Supervisor: Prof. Gabriele Lenzini. Thesis: Computational analysis of misinformation engagement and interventions on social media [Excellent Thesis Award ].",
   },
   {
     period: "2019 — 2022",
