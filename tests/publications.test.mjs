@@ -31,7 +31,7 @@ test("preserve file order, skip hidden entries and do not invent corresponding r
 });
 test("venue inference, a shared logo, names with particles and corporate authors", () => {
   const [p] = getPublications('@inproceedings{a, title={Test}, author={{Research and Development} and van der Waals, Johannes and Chuai, Yuwei}, year=2026, booktitle={CHI Conference on Human Factors in Computing Systems}, corresponding={true}}', venues);
-  assert.equal(p.venue, "ACM CHI");
+  assert.equal(p.venue, "ACM · CHI");
   assert.equal(p.authors[0].name, "Research and Development");
   assert.equal(p.authors[1].name, "Johannes van der Waals");
   assert.equal(p.authors[2].corresponding, true);
