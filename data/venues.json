@@ -4,6 +4,12 @@
     "patterns": ["nature communications"],
     "logo": "./logos/nature-communications.png"
   },
+  "emnlp": {
+    "label": "ACL · EMNLP", "badge": "EMNLP",
+    "patterns": ["empirical methods in natural language processing"],
+    "logo": "",
+    "logos": { "2026": "./logos/icwsm-2026.png"}
+  },
   "www": {
     "label": "The Web Conference", "badge": "WWW",
     "patterns": ["web conference", "world wide web", "\\bWWW\\b"],
