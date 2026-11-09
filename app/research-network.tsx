@@ -19,7 +19,7 @@ const readers = [
 export default function ResearchNetwork() {
   return (
     <figure className="research-network" data-research-network>
-      <svg className="network-graph" viewBox="0 0 640 120" role="img" aria-label="Information flows from a post through successive branches of a network, with fact-checking and AI at its center.">
+      <svg className="network-graph" viewBox="0 0 640 120" role="img" aria-label="Information flows from a post through successive branches of a network, with community contributors, fact-checking, and AI at its center.">
         <g className="network-routes">
           {routes.map((route) => <path key={route} d={route} />)}
         </g>
@@ -28,11 +28,15 @@ export default function ResearchNetwork() {
         </g>
         {readers.map(([x, y]) => <circle key={`${x}-${y}`} className="network-reader" cx={x} cy={y} r="3.5" />)}
         <circle className="network-post" cx="8" cy="60" r="5" />
-        <g className="network-symbol" transform="translate(294 60)" aria-hidden="true">
+        <g className="network-symbol" transform="translate(268 60)" aria-hidden="true">
+          <circle r="17" />
+          <path d="M-2-3a3 3 0 1 0-6 0 3 3 0 0 0 6 0ZM-10 7V6a5 5 0 0 1 10 0v1M4-6a3 3 0 0 1 0 6M5 2a5 5 0 0 1 5 5" />
+        </g>
+        <g className="network-symbol" transform="translate(320 60)" aria-hidden="true">
           <circle r="17" />
           <path d="M-7 0l5 5 9-10" />
         </g>
-        <g className="network-symbol" transform="translate(346 60)" aria-hidden="true">
+        <g className="network-symbol" transform="translate(372 60)" aria-hidden="true">
           <circle r="17" />
           <text textAnchor="middle" dominantBaseline="central">AI</text>
         </g>
