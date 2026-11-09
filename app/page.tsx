@@ -19,7 +19,7 @@ const profileLinks = [
 const newsUpdates = [
   {
     date: "2026-09",
-    title: "New preprint",
+    title: "Location transparency on X",
     description:
       <>
         We studied X's location transparency feature and found it can reduce
@@ -31,7 +31,7 @@ const newsUpdates = [
   },
   {
     date: "2026-08",
-    title: "New preprint",
+    title: "Community Notes and misinformation producers",
     description:
       <>
         The downstream effects of community notes on misinformation producers are divergent.{" "}
@@ -42,7 +42,12 @@ const newsUpdates = [
     date: "2026-08",
     title: "EMNLP 2026",
     description:
-      "One paper accepted in the EMNLP 2026 main conference, to be held in Budapest, Hungary from October 24–29, 2026.",
+      <>
+        <ExternalLink href="https://doi.org/10.18653/2026.emnlp-main.829" className="paper-link">
+          CoVer: Conflict-aware claim verification
+        </ExternalLink>{" "}
+        was accepted to the EMNLP 2026 main conference, which took place in Budapest, Hungary.
+      </>,
   },
   {
     date: "2026-07",
@@ -256,10 +261,9 @@ export default function Home() {
                 {/*<p className="eyebrow">Computational social science · Online trust and safety</p>*/}
                 <h2 id="about-heading">About me</h2>
                 <p>
-                  I study how information spreads online and how digital platforms can
-                  become more trustworthy. I am currently a postdoctoral researcher at the
-                  <strong> University of Luxembourg</strong>, working on misinformation,
-                  community-based fact-checking, and platform governance.
+                  I study how to make online environments more trustworthy and resilient to
+                  misinformation and other online harms, with a focus on community-based
+                  fact-checking, platform governance, and human–AI collaboration.
                 </p>
               </div>
               <ResearchNetwork />
