@@ -232,8 +232,9 @@ h3 { font-size: 1rem; font-weight: 600; line-height: 1.5; }
 .research-network {
   position: relative;
   min-width: 0;
-  width: min(100%, 32rem);
-  margin: 0.4rem auto;
+  width: 100%;
+  max-width: 47rem;
+  margin: 0.4rem 0;
 }
 .network-toggle { position: absolute; right: 0.2rem; bottom: 0.2rem; width: 2rem; height: 2rem; color: #778ba7; cursor: pointer; }
 .network-toggle:hover { background: var(--accent-soft); color: var(--accent); }
@@ -254,6 +255,8 @@ h3 { font-size: 1rem; font-weight: 600; line-height: 1.5; }
 }
 .network-signals path:nth-child(2) { animation-delay: -2.3s; }
 .network-signals path:nth-child(3) { animation-delay: -4.6s; }
+.network-signals path:nth-child(4) { animation-duration: 3s; animation-delay: -0.8s; }
+.network-signals path:nth-child(5) { animation-duration: 2.5s; animation-delay: -1.6s; }
 .research-network[data-network-playing="true"] .network-signals path {
   animation-play-state: running;
   opacity: 1;
