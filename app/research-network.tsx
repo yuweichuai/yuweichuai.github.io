@@ -48,55 +48,41 @@ const project = (node: typeof nodes[number]) => {
   return { x: 160 + node.x * scale, y: 125 + node.y * scale, scale };
 };
 const points = nodes.map(project);
+const [postNode, checkNode] = links[0];
 const signalEdges = Array.from({ length: 6 }, (_, index) => Math.floor(index * links.length / 6));
 
 export default function ResearchNetwork() {
   return (
     <figure className="research-network" data-research-network>
-      <svg className="network-graph" viewBox="0 0 320 250" role="img" aria-label="A post spreads through a network. Community contributors and AI tools can inform a fact-checking note that is linked back to the post.">
+      <svg className="network-graph" viewBox="0 0 320 250" role="img" aria-label="Illustration of information spreading through a network, with highlighted nodes for a post and its fact-check.">
         <g className="network-edges">
           {links.map(([from, to], index) => (
-            <line key={index} data-network-edge data-from={from} data-to={to} x1={points[from].x} y1={points[from].y} x2={points[to].x} y2={points[to].y} opacity={0.3} />
+            <line key={index} className={index === 0 ? "network-highlight-edge" : undefined} data-network-edge data-from={from} data-to={to} x1={points[from].x} y1={points[from].y} x2={points[to].x} y2={points[to].y} opacity={0.3} />
           ))}
         </g>
         <g className="network-nodes">
-          {nodes.map((node, index) => (
-            <g key={index} className={`network-particle${index % 6 === 0 ? " network-accent" : ""}`} data-network-node data-x={node.x} data-y={node.y} data-z={node.z} data-size={node.size} data-phase={index * 1.37} transform={`translate(${points[index].x} ${points[index].y})`}>
-              <circle className="network-halo" r={node.size * points[index].scale * 2.8} opacity={0.1} />
-              <circle className="network-core" r={node.size * points[index].scale} opacity={0.65 + node.z / 240} />
-            </g>
-          ))}
+          {nodes.map((node, index) => {
+            const accent = index === postNode ? " network-post" : index % 6 === 0 ? " network-accent" : "";
+            return (
+              <g key={index} className={`network-particle${accent}`} data-network-node data-x={node.x} data-y={node.y} data-z={node.z} data-size={node.size} data-phase={index * 1.37} transform={`translate(${points[index].x} ${points[index].y})`}>
+                <circle className="network-halo" r={node.size * points[index].scale * 2.8} opacity={0.1} />
+                <circle className="network-core" r={node.size * points[index].scale} opacity={0.65 + node.z / 240} />
+                {index === checkNode && (
+                  <g className="network-check" aria-hidden="true">
+                    <circle r="8" />
+                    <path d="m-3 0 2 2 4-4" />
+                  </g>
+                )}
+              </g>
+            );
+          })}
         </g>
         <g className="network-signals" aria-hidden="true">
           {signalEdges.map((edge, index) => (
             <circle key={edge} data-network-signal data-edge={edge} data-phase={index / 6} cx={points[links[edge][0]].x} cy={points[links[edge][0]].y} r={2.1} opacity={0} />
           ))}
         </g>
-        <g className="network-story" aria-hidden="true">
-          {/* An illustrative path through the animated network. */}
-          <path className="network-spread" d="M85 117 68 89 95 65 M85 117 56 145 86 175" />
-          <circle className="network-spread" cx="95" cy="65" r="4" />
-          <circle className="network-spread" cx="86" cy="175" r="4" />
-          <path d="M233 91 208 145 M270 127 244 146 M172 165 Q132 170 107 133 M108 142l-1-9 9 3" />
-          <g className="network-post" transform="translate(85 117)">
-            <rect x="-25" y="-14" width="50" height="28" rx="7" />
-            <text>Post</text>
-          </g>
-          <g transform="translate(230 77)">
-            <rect x="-52" y="-14" width="104" height="28" rx="7" />
-            <text>Community</text>
-          </g>
-          <g transform="translate(272 113)">
-            <rect x="-18" y="-14" width="36" height="28" rx="7" />
-            <text>AI</text>
-          </g>
-          <g className="network-note" transform="translate(218 160)">
-            <rect x="-46" y="-14" width="92" height="28" rx="7" />
-            <text>Fact-check</text>
-          </g>
-        </g>
       </svg>
-      <figcaption className="network-caption">How information spreads and fact-checks reach readers.</figcaption>
       <Button variant="ghost" size="icon" className="network-toggle" data-network-toggle hidden aria-label="Pause network animation" title="Pause network animation">
         <Pause className="network-pause-icon" size={13} aria-hidden="true" />
         <Play className="network-play-icon" size={13} aria-hidden="true" />
