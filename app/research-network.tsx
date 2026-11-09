@@ -53,8 +53,7 @@ const signalEdges = Array.from({ length: 6 }, (_, index) => Math.floor(index * l
 export default function ResearchNetwork() {
   return (
     <figure className="research-network" data-research-network>
-      <figcaption className="sr-only">An abstract, animated information network.</figcaption>
-      <svg className="network-graph" viewBox="0 0 320 250" role="img" aria-label="A conceptual illustration of an AI chip surrounded by an animated network of blue points.">
+      <svg className="network-graph" viewBox="0 0 320 250" role="img" aria-label="A post spreads through a network. Community contributors and AI tools can inform a fact-checking note that is linked back to the post.">
         <g className="network-edges">
           {links.map(([from, to], index) => (
             <line key={index} data-network-edge data-from={from} data-to={to} x1={points[from].x} y1={points[from].y} x2={points[to].x} y2={points[to].y} opacity={0.3} />
@@ -73,12 +72,31 @@ export default function ResearchNetwork() {
             <circle key={edge} data-network-signal data-edge={edge} data-phase={index / 6} cx={points[links[edge][0]].x} cy={points[links[edge][0]].y} r={2.1} opacity={0} />
           ))}
         </g>
-        <g className="network-ai-chip" transform="translate(160 125)" aria-hidden="true">
-          <path d="M-10-18v-6 M0-18v-6 M10-18v-6 M-10 18v6 M0 18v6 M10 18v6 M-18-10h-6 M-18 0h-6 M-18 10h-6 M18-10h6 M18 0h6 M18 10h6" />
-          <rect x="-18" y="-18" width="36" height="36" rx="7" />
-          <text y="1" textAnchor="middle" dominantBaseline="middle">AI</text>
+        <g className="network-story" aria-hidden="true">
+          {/* An illustrative path through the animated network. */}
+          <path className="network-spread" d="M85 117 68 89 95 65 M85 117 56 145 86 175" />
+          <circle className="network-spread" cx="95" cy="65" r="4" />
+          <circle className="network-spread" cx="86" cy="175" r="4" />
+          <path d="M233 91 208 145 M270 127 244 146 M172 165 Q132 170 107 133 M108 142l-1-9 9 3" />
+          <g className="network-post" transform="translate(85 117)">
+            <rect x="-25" y="-14" width="50" height="28" rx="7" />
+            <text>Post</text>
+          </g>
+          <g transform="translate(230 77)">
+            <rect x="-52" y="-14" width="104" height="28" rx="7" />
+            <text>Community</text>
+          </g>
+          <g transform="translate(272 113)">
+            <rect x="-18" y="-14" width="36" height="28" rx="7" />
+            <text>AI</text>
+          </g>
+          <g className="network-note" transform="translate(218 160)">
+            <rect x="-46" y="-14" width="92" height="28" rx="7" />
+            <text>Fact-check</text>
+          </g>
         </g>
       </svg>
+      <figcaption className="network-caption">How information spreads and fact-checks reach readers.</figcaption>
       <Button variant="ghost" size="icon" className="network-toggle" data-network-toggle hidden aria-label="Pause network animation" title="Pause network animation">
         <Pause className="network-pause-icon" size={13} aria-hidden="true" />
         <Play className="network-play-icon" size={13} aria-hidden="true" />

@@ -240,7 +240,7 @@ h3 { font-size: 1rem; font-weight: 600; line-height: 1.5; }
   border-radius: 0.875rem;
   background: radial-gradient(ellipse at center, var(--accent-soft), var(--surface) 75%);
 }
-.network-toggle { position: absolute; right: 0.2rem; bottom: 0.2rem; width: 2rem; height: 2rem; color: #778ba7; cursor: pointer; }
+.network-toggle { position: absolute; right: 0.2rem; top: 0.2rem; width: 2rem; height: 2rem; color: #778ba7; cursor: pointer; }
 .network-toggle:hover { background: var(--accent-soft); color: var(--accent); }
 .network-toggle[hidden] { display: none; }
 .network-play-icon { display: none; }
@@ -253,9 +253,15 @@ h3 { font-size: 1rem; font-weight: 600; line-height: 1.5; }
 .network-core { stroke: #ffffff; stroke-width: 0.8; }
 .network-halo { stroke: none; }
 .network-signals { fill: #50a5c3; }
-.network-ai-chip path { fill: none; stroke: #6686ad; stroke-width: 1.4; stroke-linecap: round; }
-.network-ai-chip rect { fill: var(--background); stroke: #6686ad; stroke-width: 1.4; }
-.network-ai-chip text { fill: var(--accent); font-size: 14px; font-weight: 650; }
+.network-story path { fill: none; stroke: #6686ad; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.network-story path.network-spread { stroke: #ae7628; }
+.network-story circle { fill: #ae7628; }
+.network-story rect { fill: var(--background); stroke: #6686ad; stroke-width: 1.4; }
+.network-story text { fill: var(--accent); font-size: 16px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+.network-post rect { fill: #fff5e4; stroke: #ae7628; }
+.network-post text { fill: #805318; }
+.network-note rect { fill: var(--accent-soft); stroke: var(--accent); }
+.network-caption { padding: 0 0.5rem 0.45rem; color: var(--muted); font-size: 0.75rem; line-height: 1.35; text-align: center; }
 .current-note {
   padding: 0.75rem 1rem;
   border-left: 2px solid var(--accent);
