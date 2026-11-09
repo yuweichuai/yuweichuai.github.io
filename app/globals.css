@@ -228,9 +228,18 @@ h3 { font-size: 1rem; font-weight: 600; line-height: 1.5; }
 .about-section > p:not(.eyebrow) { margin-top: 0.85rem; }
 .about-section > p:not(.eyebrow):not(.current-note) { max-width: 47rem; }
 .about-section strong { font-weight: 600; }
+.about-copy h2 { font-size: 1.65rem; }
 .about-overview { display: grid; grid-template-columns: minmax(0, 1fr) 14rem; align-items: center; gap: 1.5rem; }
 .about-copy > p:not(.eyebrow) { margin-top: 0.85rem; }
-.research-network { position: relative; min-width: 0; margin: 0; padding: 0.25rem; background: radial-gradient(ellipse at 48% 48%, #5da8d911, #8eb3e206 43%, transparent 69%); }
+.research-network {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  padding: 0.25rem;
+  border: 1px solid var(--border);
+  border-radius: 0.875rem;
+  background: radial-gradient(ellipse at center, var(--accent-soft), var(--surface) 75%);
+}
 .network-toggle { position: absolute; right: 0.2rem; bottom: 0.2rem; width: 2rem; height: 2rem; color: #778ba7; cursor: pointer; }
 .network-toggle:hover { background: var(--accent-soft); color: var(--accent); }
 .network-toggle[hidden] { display: none; }
@@ -244,9 +253,13 @@ h3 { font-size: 1rem; font-weight: 600; line-height: 1.5; }
 .network-core { stroke: #ffffff; stroke-width: 0.8; }
 .network-halo { stroke: none; }
 .network-signals { fill: #50a5c3; }
+.network-ai-chip path { fill: none; stroke: #6686ad; stroke-width: 1.4; stroke-linecap: round; }
+.network-ai-chip rect { fill: var(--background); stroke: #6686ad; stroke-width: 1.4; }
+.network-ai-chip text { fill: var(--accent); font-size: 14px; font-weight: 650; }
 .current-note {
   padding: 0.75rem 1rem;
   border-left: 2px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
   background: var(--surface);
   color: var(--muted);
   font-size: 0.875rem;

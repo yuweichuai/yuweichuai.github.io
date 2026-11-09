@@ -54,7 +54,7 @@ export default function ResearchNetwork() {
   return (
     <figure className="research-network" data-research-network>
       <figcaption className="sr-only">An abstract, animated information network.</figcaption>
-      <svg className="network-graph" viewBox="0 0 320 250" role="img" aria-label="An organic network of connected blue points with depth and flowing light; a conceptual illustration, not research data.">
+      <svg className="network-graph" viewBox="0 0 320 250" role="img" aria-label="A conceptual illustration of an AI chip surrounded by an animated network of blue points.">
         <g className="network-edges">
           {links.map(([from, to], index) => (
             <line key={index} data-network-edge data-from={from} data-to={to} x1={points[from].x} y1={points[from].y} x2={points[to].x} y2={points[to].y} opacity={0.3} />
@@ -72,6 +72,11 @@ export default function ResearchNetwork() {
           {signalEdges.map((edge, index) => (
             <circle key={edge} data-network-signal data-edge={edge} data-phase={index / 6} cx={points[links[edge][0]].x} cy={points[links[edge][0]].y} r={2.1} opacity={0} />
           ))}
+        </g>
+        <g className="network-ai-chip" transform="translate(160 125)" aria-hidden="true">
+          <path d="M-10-18v-6 M0-18v-6 M10-18v-6 M-10 18v6 M0 18v6 M10 18v6 M-18-10h-6 M-18 0h-6 M-18 10h-6 M18-10h6 M18 0h6 M18 10h6" />
+          <rect x="-18" y="-18" width="36" height="36" rx="7" />
+          <text y="1" textAnchor="middle" dominantBaseline="middle">AI</text>
         </g>
       </svg>
       <Button variant="ghost" size="icon" className="network-toggle" data-network-toggle hidden aria-label="Pause network animation" title="Pause network animation">
