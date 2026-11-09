@@ -36,7 +36,7 @@
           const projectedY = y * Math.cos(tilt) - rotatedZ * Math.sin(tilt);
           const z = y * Math.sin(tilt) + rotatedZ * Math.cos(tilt);
           const scale = 340 / (340 - z);
-          return { x: 160 + rotatedX * scale, y: 125 + projectedY * scale, scale, depth: Math.max(0, Math.min(1, (z + 110) / 220)) };
+          return { x: 240 + rotatedX * scale * 1.75, y: 60 + projectedY * scale * 0.45, scale, depth: Math.max(0, Math.min(1, (z + 110) / 220)) };
         });
         nodes.forEach((node, index) => {
           const point = points[index];

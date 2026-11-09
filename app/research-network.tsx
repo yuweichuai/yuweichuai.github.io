@@ -45,7 +45,7 @@ nodes.forEach((_, from) => {
 });
 const project = (node: typeof nodes[number]) => {
   const scale = 340 / (340 - node.z);
-  return { x: 160 + node.x * scale, y: 125 + node.y * scale, scale };
+  return { x: 240 + node.x * scale * 1.75, y: 60 + node.y * scale * 0.45, scale };
 };
 const points = nodes.map(project);
 const [postNode, checkNode] = links[0];
@@ -54,7 +54,7 @@ const signalEdges = Array.from({ length: 6 }, (_, index) => Math.floor(index * l
 export default function ResearchNetwork() {
   return (
     <figure className="research-network" data-research-network>
-      <svg className="network-graph" viewBox="0 0 320 250" role="img" aria-label="Illustration of information spreading through a network, with highlighted nodes for a post and its fact-check.">
+      <svg className="network-graph" viewBox="0 0 480 120" role="img" aria-label="Illustration of information spreading through a network, with highlighted nodes for a post and its fact-check.">
         <g className="network-edges">
           {links.map(([from, to], index) => (
             <line key={index} className={index === 0 ? "network-highlight-edge" : undefined} data-network-edge data-from={from} data-to={to} x1={points[from].x} y1={points[from].y} x2={points[to].x} y2={points[to].y} opacity={0.3} />

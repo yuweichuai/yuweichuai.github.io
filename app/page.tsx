@@ -256,18 +256,13 @@ export default function Home() {
 
         <main className="main-content" id="main">
           <section className="about-section" id="about" aria-labelledby="about-heading">
-            <div className="about-overview">
-              <div className="about-copy">
-                {/*<p className="eyebrow">Computational social science · Online trust and safety</p>*/}
-                <h2 id="about-heading">About me</h2>
-                <p>
-                  I study how to make online environments more trustworthy and resilient to
-                  misinformation and other online harms, with a focus on community-based
-                  fact-checking, platform governance, and human–AI collaboration.
-                </p>
-              </div>
-              <ResearchNetwork />
-            </div>
+            <h2 id="about-heading">About me</h2>
+            <p>
+              I study how to make online environments more trustworthy and resilient to
+              misinformation and other online harms, with a focus on community-based
+              fact-checking, platform governance, and human–AI collaboration.
+            </p>
+            <ResearchNetwork />
             <p>
               Trained in computer science and information systems, I combine causal
               inference with large-scale digital trace data, network analysis,
