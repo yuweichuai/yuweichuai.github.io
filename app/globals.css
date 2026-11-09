@@ -242,16 +242,31 @@ h3 { font-size: 1rem; font-weight: 600; line-height: 1.5; }
 .network-toggle[data-paused="true"] .network-pause-icon { display: none; }
 .network-toggle[data-paused="true"] .network-play-icon { display: block; }
 .network-graph { display: block; width: 100%; height: auto; overflow: visible; }
-.network-edges line { stroke: #608fb8; stroke-width: 1; }
-.network-particle { fill: #3d6398; }
-.network-accent { fill: #398fac; }
-.network-core { stroke: #ffffff; stroke-width: 0.8; }
-.network-halo { stroke: none; }
-.network-signals { fill: #50a5c3; }
-.network-edges .network-highlight-edge { stroke: #ae7628; stroke-width: 1.5; }
-.network-post { fill: #ae7628; }
-.network-check circle { fill: var(--accent-soft); stroke: #398fac; stroke-width: 1.2; }
-.network-check path { fill: none; stroke: var(--accent); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.network-routes, .network-signals { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.network-routes { stroke: #c8d5e5; stroke-width: 1.5; }
+.network-signals path {
+  stroke: #538aa7;
+  stroke-width: 2;
+  stroke-dasharray: 6 94;
+  animation: network-flow 7s linear infinite;
+  animation-play-state: paused;
+  opacity: 0;
+}
+.network-signals path:nth-child(2) { animation-delay: -2.3s; }
+.network-signals path:nth-child(3) { animation-delay: -4.6s; }
+.research-network[data-network-playing="true"] .network-signals path {
+  animation-play-state: running;
+  opacity: 1;
+}
+@keyframes network-flow { to { stroke-dashoffset: -100; } }
+.network-reader { fill: #6483a5; stroke: var(--background); stroke-width: 1; }
+.network-post { fill: #ad762a; stroke: var(--background); stroke-width: 1.5; }
+.network-symbol circle { fill: var(--background); stroke: #a1b6cf; stroke-width: 1.5; }
+.network-symbol path { fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.network-symbol text { fill: var(--accent); font-size: 13px; font-weight: 650; }
+@media (prefers-reduced-motion: reduce) {
+  .network-signals { display: none; }
+}
 .current-note {
   padding: 0.75rem 1rem;
   border-left: 2px solid var(--accent);
