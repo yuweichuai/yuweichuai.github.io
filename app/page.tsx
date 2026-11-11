@@ -242,8 +242,8 @@ export default function Home() {
             <Download size={16} aria-hidden="true" /> Curriculum vitae
           </a>*/}
           <div className="job-market-note" role="note" aria-label="On the academic job market">
-            <p className="job-market-note-title"><Briefcase size={14} aria-hidden="true" /><span>On the faculty job market</span></p>
-            <p>Applying for tenure-track positions in 2026–2027. Get in touch if you think my profile might be a fit!</p>
+            <p className="job-market-note-title"><Briefcase size={14} aria-hidden="true" /><span>On the job market</span></p>
+            <p>Applying for academic positions in 2026–2027. Get in touch if you think my profile might be a fit!</p>
           </div>
 
           <div className="profile-links" aria-label="Academic and social profiles">
